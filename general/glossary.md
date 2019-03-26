@@ -2,100 +2,101 @@
 
 A glossary explaining the terms commonly used in Slate:
 
-### Anchor
+## Anchor
 
-### Block
+## Block
 
-### Blur
+## Blur
 
-### Change
+## Change
 
-### Character
+## Character
 
 A "character" is the smallest element that makes up a text node in Slate.
 
-### Collapsed
+## Collapsed
 
-### Core
+## Core
 
-### Data
+## Data
 
-### Decoration
+## Decoration
 
-### Document
+## Document
 
-The "document" is the top-level ["node"](#node) that contains all other nodes that make up the content of the Slate editor.
+The "document" is the top-level ["node"](glossary.md#node) that contains all other nodes that make up the content of the Slate editor.
 
-### Editor
+## Editor
 
-### Extend
+## Extend
 
-### Focus
+## Focus
 
-### Fragment
+## Fragment
 
-### History
+## History
 
-### Inline
+## Inline
 
-### Key
+## Key
 
 Keys are unique identifiers given to nodes in Slate to be able to reference them uniquely even as the document changes.
 
-### Mark
+## Mark
 
-### Merge
+## Merge
 
-### Model
+## Model
 
-### Node
+## Node
 
-### Normalize
+## Normalize
 
-### Offset
+## Offset
 
-An offset is a distance from the start of a text node, measured in ["characters"](#character).
+An offset is a distance from the start of a text node, measured in ["characters"](glossary.md#character).
 
-### Operation
+## Operation
 
-### Placeholder
+## Placeholder
 
-### Plugin
+## Plugin
 
-### Point
+## Point
 
 A point represents a specific location in a document, where a user's cursor could be placed. It is represented by the `key` of the node in the document, and the `offset` of characters into a node.
 
-### Range
+## Range
 
-A range is a way to represent a specific section of a document between two ["points"](#point). It is modelled after the [DOM Range](https://developer.mozilla.org/en-US/docs/Web/API/Range) concept.
+A range is a way to represent a specific section of a document between two ["points"](glossary.md#point). It is modelled after the [DOM Range](https://developer.mozilla.org/en-US/docs/Web/API/Range) concept.
 
-### Redo
+## Redo
 
-### Rule
+## Rule
 
-### Schema
+## Schema
 
-### Selection
+## Selection
 
-### Serializer
+## Serializer
 
-### Split
+## Split
 
-### Stack
+## Stack
 
-### Text
+## Text
 
-### Undo
+## Undo
 
-### Unwrap
+## Unwrap
 
-To "unwrap" is the opposite of to ["wrap"](#wrap), removing a surrounding node from a selection.
+To "unwrap" is the opposite of to ["wrap"](glossary.md#wrap), removing a surrounding node from a selection.
 
-### Validate
+## Validate
 
-### Value
+## Value
 
-### Wrap
+## Wrap
 
 To "wrap" is to surround a piece of text or a node in another node. For example, if you select the text `Google` and want to turn it into a link, you'd "wrap" it with an inline link node.
+
