@@ -1,0 +1,231 @@
+'C#': !<tag:yaml.org,2002:js/undefined> ''
+CSS:
+  beautifiers:
+    - Prettier
+    - Pretty Diff
+    - JS-Beautify
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '80'
+  end_with_comma: false
+  align_assignments: true
+  break_chained_methods: true
+  indent_comments: true
+  max_preserve_newlines: '0'
+  multiline_ternary: always-multiline
+  space_after_anon_function: true
+  end_with_semicolon: false
+  pragma_insert: false
+  pragma_require: false
+  end_with_newline: true
+  newline_between_rules: true
+  no_leading_zero: true
+  preserve_newlines: true
+  selector_separator_newline: !<tag:yaml.org,2002:js/undefined> ''
+HTML:
+  beautifiers:
+    - Pretty Diff
+    - JS-Beautify
+  indent_size: '1'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '80'
+  end_with_comma: false
+  align_assignments: true
+  break_chained_methods: true
+  indent_comments: true
+  max_preserve_newlines: '1'
+  multiline_ternary: always-multiline
+  space_after_anon_function: true
+  end_with_newline: false
+  preserve_newlines: true
+  force_indentation: true
+  indent_inner_html: true
+  indent_scripts: normal
+  wrap_attributes: auto
+  wrap_attributes_indent_size: '8'
+JSX:
+  beautifiers:
+    - Prettier
+    - Pretty Diff
+    - JS-Beautify
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '80'
+  end_with_comma: false
+  align_assignments: true
+  break_chained_methods: true
+  indent_comments: true
+  max_preserve_newlines: '1'
+  multiline_ternary: always-multiline
+  space_after_anon_function: true
+  end_with_semicolon: false
+  pragma_insert: false
+  pragma_require: false
+  arrow_parens: always
+  end_with_newline: false
+  jsx_brackets: true
+  object_curly_spacing: true
+  preserve_newlines: true
+  comma_first: true
+  keep_array_indentation: false
+  space_before_conditional: true
+  space_in_empty_paren: false
+  space_in_paren: true
+  unescape_strings: true
+  unindent_chained_methods: false
+JavaScript:
+  beautifiers:
+    - Prettier
+    - Pretty Diff
+    - JS-Beautify
+    - ESLint
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '80'
+  end_with_comma: false
+  align_assignments: true
+  break_chained_methods: true
+  indent_comments: true
+  max_preserve_newlines: '1'
+  multiline_ternary: always-multiline
+  space_after_anon_function: true
+  end_with_semicolon: false
+  pragma_insert: false
+  pragma_require: false
+  arrow_parens: always
+  end_with_newline: false
+  jsx_brackets: true
+  object_curly_spacing: true
+  preserve_newlines: true
+  comma_first: true
+  keep_array_indentation: false
+  space_before_conditional: true
+  space_in_empty_paren: false
+  space_in_paren: true
+  unescape_strings: true
+  unindent_chained_methods: false
+  indent_chained_methods: true
+  remove_trailing_whitespace: true
+Less:
+  beautifiers:
+    - Prettier
+    - Pretty Diff
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '80'
+  end_with_comma: false
+  align_assignments: true
+  break_chained_methods: true
+  indent_comments: true
+  max_preserve_newlines: '1'
+  multiline_ternary: always-multiline
+  space_after_anon_function: true
+  end_with_semicolon: false
+  pragma_insert: false
+  pragma_require: false
+  newline_between_rules: true
+  no_leading_zero: true
+Markdown:
+  beautifiers:
+    - Prettier
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '80'
+  end_with_semicolon: false
+  pragma_insert: false
+  pragma_require: false
+  wrap_prose: always
+PHP:
+  beautifiers:
+    - PHP-CS-Fixer
+SCSS:
+  beautifiers:
+    - Prettier
+    - Pretty Diff
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '80'
+  end_with_comma: false
+  align_assignments: true
+  break_chained_methods: true
+  indent_comments: true
+  max_preserve_newlines: '1'
+  multiline_ternary: always-multiline
+  space_after_anon_function: true
+  end_with_semicolon: false
+  pragma_insert: false
+  pragma_require: false
+  newline_between_rules: true
+  no_leading_zero: true
+SVG:
+  beautifiers:
+    - Pretty Diff
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '77'
+  end_with_comma: false
+  align_assignments: true
+  break_chained_methods: true
+  indent_comments: true
+  max_preserve_newlines: '1'
+  multiline_ternary: always-multiline
+  space_after_anon_function: true
+  force_indentation: true
+Sass:
+  beautifiers:
+    - Pretty Diff
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '80'
+  end_with_comma: false
+  align_assignments: true
+  break_chained_methods: true
+  indent_comments: true
+  max_preserve_newlines: '1'
+  multiline_ternary: always-multiline
+  space_after_anon_function: true
+  newline_between_rules: true
+  no_leading_zero: true
+TypeScript:
+  beautifiers:
+    - Prettier
+    - Pretty Diff
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  wrap_line_length: '80'
+  end_with_comma: false
+  align_assignments: true
+  break_chained_methods: true
+  indent_comments: true
+  max_preserve_newlines: '1'
+  multiline_ternary: always-multiline
+  space_after_anon_function: true
+  end_with_semicolon: false
+  pragma_insert: false
+  pragma_require: false
+  arrow_parens: always
+  jsx_brackets: true
+  object_curly_spacing: true
+Vue:
+  beautifiers:
+    - Prettier
+  indent_size: '2'
+  indent_style: space
+  quotes: single
+  end_with_comma: false
+  end_with_semicolon: false
+  pragma_insert: false
+  pragma_require: false
+  arrow_parens: always
+  jsx_brackets: true
+  object_curly_spacing: true

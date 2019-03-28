@@ -1,0 +1,69 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code{
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+
+// #App{}
+// .header{}
+// .search{}
+// .search__input{}
+// .search__button{}
+// .main-nav{}
+// .main-nav__link{}
+// .body{}
+// .contact-list{}
+// .contact-link{}
+// .contact-link__avatar-image{}
+// .contact-link__avatar-letter{}
+// .contact-link__text{}
+// .contact-link__text__name{}
+// .contact-link__text__email{}
+// .contact-page{}
+
+
+/* 
+ * Inspired by http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ 
+ * code mixed with some taken from:  http://furtive.co/
+ */
+
+.media{
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.media__figure{
+  float: left;
+  margin-right: 1em;
+}
+.media__figure .picture, .media__figure img{
+  display: block;
+}
+
+.media__body{
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1;
+  flex: 1 0 0;
+}
+
+.load{
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: loading;
+  animation-timing-function: linear;
+  border-radius: 99em;
+  border: 3px solid #DDD;
+  border-left-color: #666;
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+}
