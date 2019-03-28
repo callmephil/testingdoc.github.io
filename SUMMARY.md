@@ -20,7 +20,7 @@
 * [Exercises](Docs/03_Exercises/README.md)
     * [HTML](Docs/03_Exercises/01_HTML/README.md)
     * [CSS](Docs/03_Exercises/02_CSS/README.md)
-        * [CV Styling](Docs/03_Exercises/02_CSS/cv-styling-master/README.md)
+        * [CV Styling](Docs/03_Exercises/02_CSS/cv-styling-master/readme.md)
     * [JavaScript](Docs/03_Exercises/03_JavaScript/README.md)
         * [Basics-01](Docs/03_Exercises/03_JavaScript/javascript-basics-01/readme.md)
         * [Basics-02](Docs/03_Exercises/03_JavaScript/javascript-basics-02/readme.md)
