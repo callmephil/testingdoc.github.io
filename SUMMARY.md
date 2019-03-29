@@ -56,6 +56,7 @@
             * [Looks*](Docs/02_Tutorials/01_React_Beginner/04-looks/README.md)
         * [React: Advanced](Docs/02_Tutorials/01_React_Advanced/README.md)
         * [React: Expert](Docs/02_Tutorials/01_React_Expert/README.md)
+
 * [Exercises](Docs/03_Exercises/README.md)
     * [HTML](Docs/03_Exercises/01_HTML/README.md)
     * [CSS](Docs/03_Exercises/02_CSS/README.md)
@@ -70,12 +71,15 @@
     * [Database](Docs/03_Exercises/04_Database/README.md)
         * [SQLite Basic](Docs/03_Exercises/04_Database/sql-exercise-master/README.md)
     * [React](Docs/03_Exercises/05_React/README.md)
+
 * [Challenges](Docs/04_Challenges/README.md)
     * [Financial Tracker](Docs/04_Challenges/FinancialTracker/readme.md)
     * [Snake-Master](Docs/04_Challenges/snake-master/readme.md)
     * [Socket.IO](Docs/04_Challenges/Socket/readme.md)
+
 * [WordPress](Docs/05_WordPress/README.md)
     * [WordPress](Docs/05_WordPress/Basic-WordPress.md)
+    
 * [Group Projects](Docs/06_Group_Projects/README.md)
     * [Bakery-Shop](Docs/06_Group_Projects/bakery-shop/readme.md)
     * [booking-app-brief](Docs/06_Group_Projects/booking-app-brief/readme.md)
