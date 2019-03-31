@@ -18,7 +18,7 @@
     * [Participate (How-To)](Docs/01_General/04_Participate/README.md)
         * [Folder & File Structure](Docs/01_General/04_Participate/01-how-to-folder-file-structure.md)
         * [Tutorial Template](Docs/01_General/04_Participate/02-how-to-tutorial-template.md)
-        * [Exercise Template](Docs/01_General/04_Participate/03-how-to-exercise-template.md)
+        * [Exercises Template](Docs/01_General/04_Participate/03-how-to-exercises-template.md)
         * [Challenge Template](Docs/01_General/04_Participate/04-how-to-challenge-template.md)
         * [Project Template](Docs/01_General/04_Participate/05-how-to-project-template.md)
     * [Contributions](Docs/01_General/05_Contributions/01-Contributors.md)
