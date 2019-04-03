@@ -1,3 +1,0 @@
-# Tutorial Template
-
-* TODO

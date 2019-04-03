@@ -1,3 +1,0 @@
-# Project Template
-
-* TODO
