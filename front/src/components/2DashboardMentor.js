@@ -10,7 +10,7 @@ import {DataTable} from 'primereact/datatable';
 import {Column} from 'primereact/column';
 import {FullCalendar} from 'primereact/fullcalendar';
 
-export class Dashboard extends Component {
+export class DashboardMentor extends Component {
 
     constructor() {
         super();
@@ -237,7 +237,7 @@ export class Dashboard extends Component {
                 </div>
                 <div className="p-col-12 p-md-6 p-lg-4">
                     <Panel header="Tasks" style={{height: '100%'}}>
-                        <ul className='task-list' style={{maxHeight: '240px', overflow: 'hidden', overflowY:'scroll'}}>
+                        <ul className='task-list'>
                             <li>
                                 <Checkbox value="task1" onChange={this.onTaskChange} checked={this.state.tasks.indexOf('task1')>-1?true:false}></Checkbox>
                                 <span className="task-name">Portfolio HTML</span>
@@ -272,8 +272,8 @@ export class Dashboard extends Component {
                     </Panel>
                 </div>
                 <div className="p-col-12 p-md-6 p-lg-4">
-                <Panel header="Group Tasks">
-                        <ul className='task-list' style={{maxHeight: '240px', overflow: 'hidden', overflowY:'scroll'}}>
+                <Panel header="Group Tasks" style={{maxHeight: '300px', overflow: 'hidden', overflowY:'scroll'}}>
+                        <ul className='task-list' style={{}}>
                             <li>
                                 <Checkbox value="task7" onChange={this.onTaskChange} checked={this.state.tasks.indexOf('task7')>-1?true:false}></Checkbox>
                                 <span className="task-name">Research : What is SQL ?</span>
@@ -374,19 +374,19 @@ export class Dashboard extends Component {
                 </div>
                 <div className="p-col-12 p-lg-6">
                     <div className="card">
-                        <h1 style={{fontSize:'16px'}}>Assignments</h1>
+                        <h1 style={{fontSize:'16px'}}>Recent Sales</h1>
                         <DataTable value={this.state.cars}  style={{marginBottom: '20px'}} responsive={true}
                                 selectionMode="single" selection={this.state.selectedCar} onSelectionChange={(e) => this.setState({selectedCar: e.value})}>
-                            <Column field="Mentor" header="Mentor" sortable={false} />
-                            <Column field="Deadline" header="Deadline" sortable={true} />
-                            <Column field="Message" header="Message" sortable={false} />
-                            <Column field="Link" header="Link" sortable={false} />
+                            <Column field="vin" header="Vin" sortable={true} />
+                            <Column field="year" header="Year" sortable={true} />
+                            <Column field="brand" header="Brand" sortable={true} />
+                            <Column field="color" header="Color" sortable={true} />
                         </DataTable>
                     </div>
                 </div>
                 <div className="p-col-12 p-lg-6">
                     <div className="card">
-                        <h1 style={{fontSize:'16px'}} className="centerText">Skills</h1>
+                        <h1 className="centerText">Skills</h1>
                         <Chart type="radar" data={this.state.radarData} height="150"/>
                     </div>
                 </div>
@@ -410,7 +410,6 @@ export class Dashboard extends Component {
                             </div>
                         </div>
 
-{/*                         
                         <ul className="activity-list">
                             <li>
                                 <div className="count">$900</div>
@@ -454,7 +453,7 @@ export class Dashboard extends Component {
                                     <div className="p-col-6">25%</div>
                                 </div>
                             </li>
-                        </ul> */}
+                        </ul>
                     </Panel>
                 </div>
             </div>

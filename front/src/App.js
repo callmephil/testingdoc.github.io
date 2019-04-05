@@ -6,6 +6,7 @@ import {AppMenu} from './AppMenu';
 import {AppInlineProfile} from './AppInlineProfile';
 import {Route} from 'react-router-dom';
 import {Dashboard} from './components/Dashboard';
+import {DashboardMentor} from './components/DashboardMentor';
 import {FormsDemo} from './components/FormsDemo';
 import {SampleDemo} from './components/SampleDemo';
 import {DataDemo} from './components/DataDemo';
@@ -98,6 +99,7 @@ class App extends Component {
     createMenu() {
         this.menu = [
             {label: 'Dashboard', icon: 'pi pi-fw pi-home', command: () => {window.location = '#/'}},
+            {label: 'Mentor Dashboard', icon : 'pi pi-fw pi-home', to: '/mentor'},
             {
                 label: 'Menu Modes', icon: 'pi pi-fw pi-cog',
                 items: [
@@ -238,6 +240,7 @@ class App extends Component {
 
                 <div className="layout-main">
                     <Route path="/" exact component={Dashboard} />
+                    <Route path="/mentor" component={DashboardMentor} />
                     <Route path="/forms" component={FormsDemo} />
                     <Route path="/sample" component={SampleDemo} />
                     <Route path="/data" component={DataDemo} />
