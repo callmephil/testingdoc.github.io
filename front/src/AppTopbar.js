@@ -13,6 +13,9 @@ export class AppTopbar extends Component {
     }
 
     render() {
+        const openPage = (link) => {
+            window.location = link;
+        }
         return (
             <div className="layout-topbar clearfix">
                 <button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
@@ -28,13 +31,13 @@ export class AppTopbar extends Component {
                         <span className="layout-topbar-icon pi pi-calendar"/>
                         <span className="layout-topbar-badge">5</span>
                     </button>
-                    <button className="p-link">
-                        <span className="layout-topbar-item-text">Settings</span>
-                        <span className="layout-topbar-icon pi pi-cog"/>
-                    </button>
-                    <button className="p-link">
+                    <button className="p-link" onClick={() => openPage('/')}>
                         <span className="layout-topbar-item-text">User</span>
                         <span className="layout-topbar-icon pi pi-user"/>
+                    </button>
+                    <button className="p-link" onClick={() => openPage('/settings')}>
+                        <span className="layout-topbar-item-text">Settings</span>
+                        <span className="layout-topbar-icon pi pi-cog"/>
                     </button>
                 </div>
             </div>

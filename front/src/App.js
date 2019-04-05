@@ -5,20 +5,27 @@ import {AppFooter} from './AppFooter';
 import {AppMenu} from './AppMenu';
 import {AppInlineProfile} from './AppInlineProfile';
 import {Route} from 'react-router-dom';
-import {Dashboard} from './components/Dashboard';
-import {DashboardMentor} from './components/DashboardMentor';
-import {FormsDemo} from './components/FormsDemo';
-import {SampleDemo} from './components/SampleDemo';
-import {DataDemo} from './components/DataDemo';
-import {PanelsDemo} from './components/PanelsDemo';
-import {OverlaysDemo} from './components/OverlaysDemo';
-import {MenusDemo} from './components/MenusDemo';
-import {MessagesDemo} from './components/MessagesDemo';
-import {ChartsDemo} from './components/ChartsDemo';
-import {MiscDemo} from './components/MiscDemo';
-import {EmptyPage} from './components/EmptyPage';
-import {Documentation} from "./components/Documentation";
+
+/* ==== Default Components ==== */
+import {FormsDemo} from './components/Examples/FormsDemo';
+import {SampleDemo} from './components/Examples/SampleDemo';
+import {DataDemo} from './components/Examples/DataDemo';
+import {PanelsDemo} from './components/Examples/PanelsDemo';
+import {OverlaysDemo} from './components/Examples/OverlaysDemo';
+import {MenusDemo} from './components/Examples/MenusDemo';
+import {MessagesDemo} from './components/Examples/MessagesDemo';
+import {ChartsDemo} from './components/Examples/ChartsDemo';
+import {MiscDemo} from './components/Examples/MiscDemo';
+import {EmptyPage} from './components/Examples/EmptyPage';
+import {Documentation} from "./components/Examples/Documentation";
 import {ScrollPanel} from 'primereact/components/scrollpanel/ScrollPanel';
+
+/* ==== Pages ==== */ 
+import {AccountInterface} from './pages/AccountInterface';
+import {DashboardMentor} from './pages/MentorInterface';
+import {Dashboard} from './pages/UserInterface';
+
+
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -98,22 +105,8 @@ class App extends Component {
 
     createMenu() {
         this.menu = [
-            {label: 'Dashboard', icon: 'pi pi-fw pi-home', command: () => {window.location = '#/'}},
-            {label: 'Mentor Dashboard', icon : 'pi pi-fw pi-home', to: '/mentor'},
-            {
-                label: 'Menu Modes', icon: 'pi pi-fw pi-cog',
-                items: [
-                    {label: 'Static Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'static'}) },
-                    {label: 'Overlay Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'overlay'}) }
-                ]
-            },
-            {
-                label: 'Menu Colors', icon: 'pi pi-fw pi-align-left',
-                items: [
-                    {label: 'Dark', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'dark'}) },
-                    {label: 'Light', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'light'}) }
-                ]
-            },
+            {label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'},
+            {label: 'Mentor Dashboard', icon : 'pi pi-fw pi-home',  to: '/mentor'},
             {
                 label: 'Components', icon: 'pi pi-fw pi-globe', badge: '9',
                 items: [
@@ -129,58 +122,14 @@ class App extends Component {
                 ]
             },
             {
-                label: 'Template Pages', icon: 'pi pi-fw pi-file',
+                label: 'Documentation', icon: 'pi pi-fw pi-search',
                 items: [
-                    {label: 'Empty Page', icon: 'pi pi-fw pi-circle-off', to: '/empty'}
+                    {label: 'Gitbook', icon: 'pi pi-fw pi-bookmark', command: () => {window.open('https://codi.gitbook.io/docs/')}},
+                    {label: 'Trello', icon: 'pi pi-fw pi-bookmark', command: () => {window.open('https://trello.com/b/RYkdjkKy/codiplatform')}},
+                    {label: 'GitHub', icon: 'pi pi-fw pi-bookmark', command: () => {window.open('https://github.com/callmephil/Codi_Doc/tree/codi_platform')}},
                 ]
             },
-            {
-                label: 'Menu Hierarchy', icon: 'pi pi-fw pi-search',
-                items: [
-                    {
-                        label: 'Submenu 1', icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            {
-                                label: 'Submenu 1.1', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark'},
-                                ]
-                            },
-                            {
-                                label: 'Submenu 1.2', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 1.2.2', icon: 'pi pi-fw pi-bookmark'}
-                                ]
-                            },
-                        ]
-                    },
-                    {
-                        label: 'Submenu 2', icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            {
-                                label: 'Submenu 2.1', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 2.1.3', icon: 'pi pi-fw pi-bookmark'},
-                                ]
-                            },
-                            {
-                                label: 'Submenu 2.2', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 2.2.2', icon: 'pi pi-fw pi-bookmark'}
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {label: 'Documentation', icon: 'pi pi-fw pi-question', command: () => {window.location = "#/documentation"}},
-            {label: 'View Source', icon: 'pi pi-fw pi-search', command: () => {window.location = "https://github.com/primefaces/sigma"}}
+            {label: 'Sigma Documentation', icon: 'pi pi-fw pi-question', command: () => {window.location = "/documentation"}},
         ];
     }
 
@@ -240,7 +189,8 @@ class App extends Component {
 
                 <div className="layout-main">
                     <Route path="/" exact component={Dashboard} />
-                    <Route path="/mentor" component={DashboardMentor} />
+                    <Route path="/mentor" exact component={DashboardMentor} />
+                    <Route path="/settings" component={AccountInterface} />
                     <Route path="/forms" component={FormsDemo} />
                     <Route path="/sample" component={SampleDemo} />
                     <Route path="/data" component={DataDemo} />
