@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {InputText} from 'primereact/inputtext';
 import PropTypes from 'prop-types';
+import {OverlayPanel} from 'primereact/overlaypanel';
 
 export class AppTopbar extends Component {
 
@@ -26,11 +27,20 @@ export class AppTopbar extends Component {
                         <InputText type="text" placeholder="Search" />
                         <span className="layout-topbar-search-icon pi pi-search"/>
                     </span>
-                    <button className="p-link">
+                    <button className="p-link" onClick={(event) => this.overlayPanel.toggle(event)}>
                         <span className="layout-topbar-item-text">Events</span>
                         <span className="layout-topbar-icon pi pi-calendar"/>
                         <span className="layout-topbar-badge">5</span>
                     </button>
+                    <OverlayPanel maximizable={true} ref={el => this.overlayPanel = el}>
+                        <div style={{width: '360px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+                        <br/> 
+                        <br/> 
+                        <br/> 
+                        Secret Message : Would be cool to display the calendar here instead.
+                        </div>
+                    </OverlayPanel>
                     <button className="p-link" onClick={() => openPage('/')}>
                         <span className="layout-topbar-item-text">User</span>
                         <span className="layout-topbar-icon pi pi-user"/>
