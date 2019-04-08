@@ -28,12 +28,12 @@ export class AppTopbar extends Component {
                   width="27"
                   alt="avatar2"
                 />
-                <span style={{marginLeft: '10px', fontSize:'18px', paddingTop: '2px', position: "absolute"}}>Philippe Makzoume</span>
+                <span style={{marginLeft: '10px', fontSize:'18px', paddingTop: '2px', position: "absolute"}}>Username</span>
                 </button>
 
                 <div className="layout-topbar-icons">
                     <span className="layout-topbar-search">
-                        <InputText type="text" placeholder="Search" />
+                        <InputText style={{width: '180px'}} type="text" placeholder="Search" />
                         <span className="layout-topbar-search-icon pi pi-search"/>
                     </span>
                     <button className="p-link" onClick={(event) => this.overlayPanel.toggle(event)}>
@@ -57,6 +57,10 @@ export class AppTopbar extends Component {
                     <button className="p-link" onClick={() => openPage('/settings')}>
                         <span className="layout-topbar-item-text">Settings</span>
                         <span className="layout-topbar-icon pi pi-cog"/>
+                    </button>
+                    <button className="p-link" onClick={() => openPage('/')}>
+                        <span className="layout-topbar-item-text">Logout</span>
+                        <span className="layout-topbar-icon pi pi-fw pi-power-off"/>
                     </button>
                 </div>
             </div>
