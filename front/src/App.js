@@ -39,7 +39,7 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            layoutMode: 'static',
+            layoutMode: 'overlay',
             layoutColorMode: 'dark',
             staticMenuInactive: false,
             overlayMenuActive: false,

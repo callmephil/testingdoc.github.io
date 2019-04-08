@@ -19,9 +19,18 @@ export class AppTopbar extends Component {
         }
         return (
             <div className="layout-topbar clearfix">
-                <button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
+                {/* <button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
                     <span className="pi pi-bars"/>
+                </button> */}
+                <button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
+                <img
+                  src="assets/layout/images/avatar_2.png"
+                  width="27"
+                  alt="avatar2"
+                />
+                <span style={{marginLeft: '10px', fontSize:'18px', paddingTop: '2px', position: "absolute"}}>Philippe Makzoume</span>
                 </button>
+
                 <div className="layout-topbar-icons">
                     <span className="layout-topbar-search">
                         <InputText type="text" placeholder="Search" />
