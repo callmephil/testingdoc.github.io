@@ -1,5 +1,3 @@
-require('dotenv').config();
-console.log(process.env)
 import app from './app'
 import Connection from './Database/Connection'
 import { isLoggedIn } from './Middleware/auth'
@@ -7,7 +5,9 @@ import { isLoggedIn } from './Middleware/auth'
 import usersControllerApp from './Controller/users'
 /* Middleware */
 import upload from './Middleware/uploads'
-import {BACK_PORT} from "../../back/src/constants";
+
+// ENVIRONEMENT
+const BACK_PORT = process.env.NODE_PORT;
 
 const start = async () => {
   /* Database Controllers */
