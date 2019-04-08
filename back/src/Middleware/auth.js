@@ -1,8 +1,8 @@
 import jwt from 'express-jwt'
 import jwksRsa from 'jwks-rsa'
 
-const AUTH0_DOMAIN = 'callmephil.eu.auth0.com'
-const AUTH0_CLIENT_ID = '3ydodpyCgj70jV2ZbVBk0qElKuEP0tJv'
+const AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN;
+const AUTH0_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 export const isLoggedIn = jwt({
   secret: jwksRsa.expressJwtSecret({
