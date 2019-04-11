@@ -1,4 +1,5 @@
 import Database from 'better-sqlite3';
+import { prepareStmt } from './Controller/PreparedStatement';
 import Users from './Controller/Users';
 
 let Connection;
@@ -20,7 +21,8 @@ const getConnection = async () => {
         else
             console.log("Connection Already Openeded, No need to re-open");
 
-        const usersController = await Users(Connection); 
+        const stmtData = await prepareStmt(Connection);
+        const usersController = await Users(stmtData); 
 
         const controllers = {
             usersController,

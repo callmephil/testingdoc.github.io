@@ -5,6 +5,7 @@ CREATE TABLE user_account (
 	lastname text,
 	email text,
 	phoneNumber text,
+	auth0_sub text,
 	security_level integer DEFAULT 0,
 	disabled integer DEFAULT 0,
 );

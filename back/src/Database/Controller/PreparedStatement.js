@@ -1,13 +1,31 @@
-const PreparedStatement = {
-    Users: {
-        
-    }
+const queryList = {
+    // USERS
+        CREATE_USER:`INSERT INTO user_account (firstname, lastname, email, phoneNumber, auth0_sub) VALUES 
+        ($firstname, $lastname, $email, $phoneNumber, $auth0_sub)`,
+        // UPDATE_USER:`test`,
+        BAN_USER:`UPDATE user_account SET disabled = 1 WHERE user_id = @id`,
+        GET_USER:`SELECT * FROM user_account WHERE user_id = @id`,
+        GET_USER_LIST:`SELECT * FROM user_account`,
+    // Groups
+        // CREATE_GROUP:`test`,
+        // ADD_GROUP_MEMBERS:`test`,    
 }
 
-const PreparedQueries = (db, statement) => {
+
+const prepareStmt = (db) => {
+    let stmt = [];
+
+    const a = Object.entries(queryList);
+    a.forEach(el => {
+        const key = el[0];
+        const value = el[1];
+        stmt[key] = db.prepare(value);
+    });
+    return stmt;
+};
+
+const executeToDatabase = (stmt) => {
     try {
-        const stmt = db.prepare(statement);
-        
         // this is shit. change this thanks.
         const SELECT = (id) => {
             return id ? stmt.get(id) : stmt.get();
@@ -52,6 +70,6 @@ const PreparedQueries = (db, statement) => {
 }
 
 export {
-    PreparedStatement,
-    PreparedQueries
+    prepareStmt,
+    executeToDatabase
 }

@@ -1,28 +1,27 @@
-import { PreparedStatement, PreparedQueries } from './PreparedStatement';
+import { executeToDatabase } from './PreparedStatement';
 import Utils from '../Utils.js';
 
-const initializeUsers = async (db) => {
+const initializeUsers = async (stmtTable) => {
     try {
-        const statement = PreparedStatement.Users;
-
         const getUser = (id) => {
-            // return PreparedQueries(db, statement.SEL_ID).SELECT(id);
+            console.log(executeToDatabase(stmtTable.GET_USER).SELECT(id));
+            return executeToDatabase(stmtTable.GET_USER).SELECT(id);
         }
 
         const getAllUsers = () => {
-            // return PreparedQueries(db, statement.SEL_ALL).SELECT_ALL();
+            // return executeToDatabase(stmtTable.SEL_ALL).SELECT_ALL();
         }
 
         const createUsers = (props) => {
-            // return PreparedQueries(db, statement.INS_NEW).INSERT(props);
+            return executeToDatabase(stmtTable.CREATE_USER).INSERT(props);
         }
 
         const updateUsers = (id, props) => {
-            // return PreparedQueries(db, statement.UPD_ID).UPDATE(id, props);
+            // return executeToDatabase(stmtTable.UPD_ID).UPDATE(id, props);
         }
 
         const deleteUsers = (id) => {
-            // return PreparedQueries(db, statement.DEL_ID).DELETE(id);
+            // return executeToDatabase(stmtTable.DEL_ID).DELETE(id);
         }
 
         const controller = {
