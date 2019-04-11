@@ -3,8 +3,8 @@ const queryList = {
         CREATE_USER:`INSERT INTO user_account (firstname, lastname, email, phoneNumber, auth0_sub) VALUES 
         ($firstname, $lastname, $email, $phoneNumber, $auth0_sub)`,
         // UPDATE_USER:`test`,
-        BAN_USER:`UPDATE user_account SET disabled = 1 WHERE user_id = @id`,
-        GET_USER:`SELECT * FROM user_account WHERE user_id = @id`,
+        BAN_USER:`UPDATE user_account SET disabled = 1 WHERE user_id = ?`,
+        GET_USER:`SELECT * FROM user_account WHERE user_id = ?`,
         GET_USER_LIST:`SELECT * FROM user_account`,
     // Groups
         // CREATE_GROUP:`test`,
@@ -13,6 +13,7 @@ const queryList = {
 
 
 const prepareStmt = (db) => {
+    try {
     let stmt = [];
 
     const a = Object.entries(queryList);
@@ -22,12 +23,17 @@ const prepareStmt = (db) => {
         stmt[key] = db.prepare(value);
     });
     return stmt;
+    } catch (e)
+    {
+        console.log(`prepareStmt : ${e}`);
+    }
 };
 
 const executeToDatabase = (stmt) => {
     try {
         // this is shit. change this thanks.
         const SELECT = (id) => {
+            console.log(stmt.get(id));
             return id ? stmt.get(id) : stmt.get();
         };
 

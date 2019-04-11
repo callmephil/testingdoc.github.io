@@ -4,12 +4,12 @@ import Utils from '../Utils.js';
 const initializeUsers = async (stmtTable) => {
     try {
         const getUser = (id) => {
-            console.log(executeToDatabase(stmtTable.GET_USER).SELECT(id));
+            // console.log(stmtTable.GET_USER.get(id));
             return executeToDatabase(stmtTable.GET_USER).SELECT(id);
         }
 
         const getAllUsers = () => {
-            // return executeToDatabase(stmtTable.SEL_ALL).SELECT_ALL();
+            return executeToDatabase(stmtTable.GET_USER_LIST).SELECT_ALL();
         }
 
         const createUsers = (props) => {

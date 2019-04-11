@@ -6,6 +6,7 @@ export default async (controller, isLoggedIn) => {
     app.get('/', (req, res, next) => res.send("Ok from user datas"))
 
     const controllerCall = async (method, props, res, next) => {
+        console.log(controller)
         try {
             const result = await controller[method](props);
             res.json({
@@ -17,11 +18,11 @@ export default async (controller, isLoggedIn) => {
         }
     }
 
-    app.get("/get/:id", async (req, res, next) => {
+    app.get("/get/:user_id", async (req, res, next) => {
         const {
-            id
+            user_id
         } = req.params;
-        controllerCall('getUser', id, res, next)
+        controllerCall('getUser', user_id, res, next)
     });
 
     app.get("/list", async (req, res, next) => {
@@ -32,7 +33,7 @@ export default async (controller, isLoggedIn) => {
             start
         } = req.query;
         
-        controllerCall('getAllUser', {
+        controllerCall('getAllUsers', {
             order,
             desc,
             limit,
