@@ -6,7 +6,6 @@ export default async (controller, isLoggedIn) => {
     app.get('/', (req, res, next) => res.send("Ok from user datas"))
 
     const controllerCall = async (method, props, res, next) => {
-        console.log(controller)
         try {
             const result = await controller[method](props);
             res.json({

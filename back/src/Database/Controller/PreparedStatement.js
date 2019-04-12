@@ -33,7 +33,6 @@ const executeToDatabase = (stmt) => {
     try {
         // this is shit. change this thanks.
         const SELECT = (id) => {
-            console.log(stmt.get(id));
             return id ? stmt.get(id) : stmt.get();
         };
 
