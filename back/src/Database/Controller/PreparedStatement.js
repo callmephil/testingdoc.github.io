@@ -16,28 +16,55 @@ const queryList = [
 
     // Streak, Max_Streak ToMove
     ATTENDANCE_INS: `INSERT INTO user_attendance (user_id, date, status, reason, streak, max_streak, key_amount) VALUES
-        ($user_id, $date, $status, $reason, $streak, $max_streak, $key_amount)`, 
+        ($user_id, $date, $status, $reason, $streak, $max_streak, $key_amount)`,
     //
     USER_SKILLS_INS: `INSERT INTO user_skills (user_id, skill_id, value) VALUES ($user_id, $skill_id, $value)`,
     USER_SKILLS_UPD: `UPDATE user_skills SET value = $value WHERE user_id = $user_id and skill_id = $skill_id`,
-    USER_SKILLS_SEL: `SELECT * FROM user_skills WHERE user_id = ?`,
+    USER_SKILLS_SEL: `SELECT * FROM user_skills WHERE user_id = ?`
     // USER_ASSIGNMENT_INS: `INSERT INTO user_assignment `, TODO
   },
   {
-      ASSIGNMENT_INS: `INSERT INTO assignment (mentor_id, task_id, link, message, startDate, endDate) VALUES 
+    ASSIGNMENT_INS: `INSERT INTO assignment (mentor_id, task_id, link, message, startDate, endDate) VALUES 
       ($mentor_id, $task_id, $link, $message, $startDate, $endDate)`,
-      ASSIGNMENT_DEL: `DELETE FROM assignment WHERE assignment_id = ?`,
-      ASSIGNMENT_UPD: `UPDATE assignment set task_id = $task_id, link = $link, message = $message, startDate = $startDate, endDate = $endDate 
+    ASSIGNMENT_DEL: `DELETE FROM assignment WHERE assignment_id = ?`,
+    ASSIGNMENT_UPD: `UPDATE assignment set task_id = $task_id, link = $link, message = $message, startDate = $startDate, endDate = $endDate 
       WHERE assignment_id = ?`,
-      ASSIGNMENT_SEL_ALL: `SELECT * FROM assignment`,
-      ASSIGNMENT_SEL: `SELECT * FROM assignment where assignment_id = ?`,
+    ASSIGNMENT_SEL_ALL: `SELECT * FROM assignment`,
+    ASSIGNMENT_SEL: `SELECT * FROM assignment where assignment_id = ?`
   },
   // GROUPS
-  {},
+  {
+    GROUP_INS: `INSERT INTO groups (group_type, group_name, project_id) VALUES
+      ($group_type, $group_name, $project_id)`,
+    GROUP_DISABLE: `UPDATE groups SET disabled = 1 WHERE group_id = ?`,
+    GROUP_MEMBER_INS: `INSERT INTO group_members (group_id, user_id) VALUES ($group_id, $user_id)`,
+    GROUP_MEMBER_DEL: `DELETE FROM groups_members WHERE group_id = ? AND user_id = ?`
+  },
   // TASKS
-  {},
+  {
+    TASK_INS: `INSERT INTO tasks (link, type, name, isRepeatable) VALUES
+    ($link, $type, $name, $isRepeatable)`,
+    TASK_DEL: `DELETE FROM tasks WHERE task_id = ?`,
+
+    TASK_PROPERTIES_INS:`INSERT INTO task_requirements (task_id, skill_id, key_range) VALUES 
+    ($task_id, $skill_id, $key_range)`,
+  },
   // PROJECTS
-  {}
+  {
+      PROJECT_INS: `INSERT INTO projects (project_name) VALUES ($project_name)`,
+      PROJECT_DEL: `DELETE FROM projects WHERE project_id = ?`,
+      PROJECT_TASK_INS: `INSERT INTO projects_tasks (project_id, task_id) VALUES ($project_id, $task_id)`,
+      PROJECT_TASK_DEL: `DELETE FROM projects_task WHERE task_id = ? AND project_id = ?`,
+      PROJECT_COMPETENCIES_INS: `INSERT INTO project_competencies (project_id, skill_id) VALUES ($project_id, $skill_id)`,
+      PROJECT_COMPETENCIES_DEL: `DELETE FROM project_competencies WHERE project_id = ? AND skill_id = ?`,
+  },
+  // SKILLS
+  {
+    SKILL_INS: `INSERT INTO skill_table (name, max_value, isStackable) VALUES
+    ($name, $max_value, $isStackable)`,
+    SKILL_UPD: `UPDATE skill_table SET name = $name, max_value = $max_value, isStackable = $isStackable WHERE skill_id = ?`,
+    SKILL_DEL: `DELETE FROM skill_table WHERE skill_id = ?`,
+  },
 ];
 
 const prepareStmt = db => {
