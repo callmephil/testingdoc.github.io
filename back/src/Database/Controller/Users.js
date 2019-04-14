@@ -12,24 +12,24 @@ const initializeUsers = async (stmtTable) => {
             return executeToDatabase(stmtTable.GET_USER_LIST).SELECT_ALL();
         }
 
-        const createUsers = (props) => {
+        const createUser = (props) => {
             return executeToDatabase(stmtTable.CREATE_USER).INSERT(props);
         }
 
-        const updateUsers = (id, props) => {
+        const updateUser = (id, props) => {
             // return executeToDatabase(stmtTable.UPD_ID).UPDATE(id, props);
         }
 
-        const deleteUsers = (id) => {
-            // return executeToDatabase(stmtTable.DEL_ID).DELETE(id);
+        const banUser = (id) => {
+            return executeToDatabase(stmtTable.BAN_USER).UPDATE(id);
         }
 
         const controller = {
             getUser,
             getAllUsers,
-            createUsers,
-            updateUsers,
-            deleteUsers
+            createUser,
+            updateUser,
+            banUser
         }
 
         return controller;
