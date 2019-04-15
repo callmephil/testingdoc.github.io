@@ -439,7 +439,7 @@ const ActivityCard = () => {
           <div className="activity-header">
             <div className="p-grid">
               <div className="p-col-6">
-                <span style={{ fontWeight: "bold" }}>Last Activity</span>
+                <span style={{ fontWeight: "bold" }}>Completed Tasks</span>
                 <p>Updated 1 minute ago</p>
               </div>
               <div className="p-col-6" style={{ textAlign: "right" }}>
@@ -449,55 +449,55 @@ const ActivityCard = () => {
           </div>
           <ul className="activity-list">
             <li>
-              <div className="count">$900</div>
+              <div className="count">Javascript 01</div>
               <div className="p-grid">
-                <div className="p-col-6">Income</div>
-                <div className="p-col-6">95%</div>
+                <div className="p-col-6">Js</div>
+                <div className="p-col-6">100%</div>
               </div>
             </li>
             <li>
               <div className="count" style={{ backgroundColor: "#f9c851" }}>
-                $250
+                $Css 01
               </div>
               <div className="p-grid">
-                <div className="p-col-6">Tax</div>
-                <div className="p-col-6">24%</div>
+                <div className="p-col-6">css</div>
+                <div className="p-col-6">100%</div>
               </div>
             </li>
             <li>
               <div className="count" style={{ backgroundColor: "#20d077" }}>
-                $125
+                $Html 01
               </div>
               <div className="p-grid">
-                <div className="p-col-6">Invoices</div>
-                <div className="p-col-6">55%</div>
+                <div className="p-col-6">Html</div>
+                <div className="p-col-6">100%</div>
               </div>
             </li>
             <li>
               <div className="count" style={{ backgroundColor: "#f9c851" }}>
-                $250
+                $Installin linux
               </div>
               <div className="p-grid">
-                <div className="p-col-6">Expenses</div>
-                <div className="p-col-6">15%</div>
+                <div className="p-col-6">Linux</div>
+                <div className="p-col-6">100%</div>
               </div>
             </li>
             <li>
               <div className="count" style={{ backgroundColor: "#007be5" }}>
-                $350
+                $Javascript 04
               </div>
               <div className="p-grid">
-                <div className="p-col-6">Bonus</div>
-                <div className="p-col-6">5%</div>
+                <div className="p-col-6">Js</div>
+                <div className="p-col-6">100%</div>
               </div>
             </li>
             <li>
               <div className="count" style={{ backgroundColor: "#ef6262" }}>
-                $500
+                $Css 03
               </div>
               <div className="p-grid">
-                <div className="p-col-6">Revenue</div>
-                <div className="p-col-6">25%</div>
+                <div className="p-col-6">Css</div>
+                <div className="p-col-6">100%</div>
               </div>
             </li>
           </ul>

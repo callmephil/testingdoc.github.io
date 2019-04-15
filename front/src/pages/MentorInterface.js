@@ -8,6 +8,10 @@ import { TeamPanel } from './MentorPanels/TeamPanel';
 import { CurriculumnPanel } from './MentorPanels/CurriculumnPanel';
 import { SettingsPanel } from './MentorPanels/SettingsPanel';
 
+
+
+
+
 export class DashboardMentor extends Component {
     constructor() {
         super();
@@ -42,5 +46,7 @@ export class DashboardMentor extends Component {
                 </div>
             </div>
         );
+        
     }
+    
 }
