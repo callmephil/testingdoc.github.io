@@ -5,6 +5,8 @@ import session from 'express-session' // parses sessions
 import favicon from 'serve-favicon' // serves favicon
 import cors from 'cors' // allows cross-domain requests
 import createError from 'http-errors' // better JS errors
+import bodyParser from 'body-parser'; // middleware to handle HTTP requests
+
 import path from 'path'
 import helmet from 'helmet'
 require('dotenv').config();
@@ -25,7 +27,8 @@ app.use(express.urlencoded({ extended: false })); // allows POST requests with G
 app.use(cookieParser()); // Parses cookies
 app.use(favicon(path.join(__dirname, '../public', 'favicon.ico'))) // <-- location of your favicon
 app.use(express.static(path.join(__dirname, '../public'))); // <-- location of your public dir
-
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(session({ // handles sessions
   secret: 'keyboard cat', // <-- this should be a secret phrase
   cookie: { secure: IS_PRODUCTION }, // <-- secure only in production
