@@ -7,9 +7,8 @@ CREATE TABLE tasks (
 	isRepeatable integer DEFAULT 0
 );
 
-DROP TABLE IF EXISTS task_requirements;
-CREATE TABLE task_requirements (
-	requirement_id integer,
+DROP TABLE IF EXISTS task_propreties;
+CREATE TABLE task_propreties (
 	task_id integer,
 	skill_id integer,
 	key_range integer,

@@ -7,6 +7,7 @@ import {Chart} from 'primereact/chart';
 import {DataTable} from 'primereact/datatable';
 import {Column} from 'primereact/column';
 import {FullCalendar} from 'primereact/fullcalendar';
+// import ProfileCard from '../components/ProfileCard'
 
 const KeyCard = () => {
   return (
@@ -347,56 +348,25 @@ const TaskCard = ({onTaskChange, state}) => {
     );
 }
 
-const GroupCard = () => {
+const GroupCard = ({groupData}) => {
   return (
     <>
       <div className="p-col-12 p-lg-4 contacts">
         <Panel header="Group Contacts">
           <ul>
-            <li>
-              <button className="p-link">
-                <img
-                  src="assets/layout/images/avatar_1.png"
-                  width="35"
-                  alt="avatar1"
-                />
-                <span className="name">Claire Williams</span>
-                <span className="email">clare@pf-sigma.com</span>
-              </button>
-            </li>
-            <li>
-              <button className="p-link">
-                <img
-                  src="assets/layout/images/avatar_2.png"
-                  width="35"
-                  alt="avatar2"
-                />
-                <span className="name">Jason Dourne</span>
-                <span className="email">jason@pf-sigma.com</span>
-              </button>
-            </li>
-            <li>
-              <button className="p-link">
-                <img
-                  src="assets/layout/images/avatar_3.png"
-                  width="35"
-                  alt="avatar3"
-                />
-                <span className="name">Jane Davidson</span>
-                <span className="email">jane@pf-sigma.com</span>
-              </button>
-            </li>
-            <li>
-              <button className="p-link">
-                <img
-                  src="assets/layout/images/avatar_4.png"
-                  width="35"
-                  alt="avatar4"
-                />
-                <span className="name">Tony Corleone</span>
-                <span className="email">tony@pf-sigma.com</span>
-              </button>
-            </li>
+              {groupData && groupData.map((el, index) => (
+                <li key={index}>
+                  <button className="p-link">
+                    <img
+                      src={el.avatar.src}
+                      width="35"
+                      alt={el.avatar.alt}
+                    />
+                    <span className="name">{ el.name }</span>
+                    <span className="email">{ el.contact }</span>
+                  </button>
+                </li>
+              ))}
           </ul>
         </Panel>
       </div>
@@ -565,6 +535,43 @@ export class Dashboard extends Component {
         this.carservice = new CarService();
     }
 
+    createTeam() {
+        this.team = [
+            { 
+                avatar: {
+                    src: "assets/layout/images/avatar_1.png",
+                    alt: "avatar1"
+                },
+                name: "Claire Williams",
+                contact: "clare@pf-sigma.com"
+            },
+            { 
+                avatar: {
+                    src: "assets/layout/images/avatar_2.png",
+                    alt: "avatar2"
+                },
+                name: "Jason Dourne",
+                contact: "jason@pf-sigma.com"
+            },
+            { 
+                avatar: {
+                    src: "assets/layout/images/avatar_3.png",
+                    alt: "avatar3"
+                },
+                name: "Jane Davidson",
+                contact: "jane@pf-sigma.com"
+            },
+            { 
+                avatar: {
+                    src: "assets/layout/images/avatar_4.png",
+                    alt: "avatar4"
+                },
+                name: "Tony Corleone",
+                contact: "tony@pf-sigma.com"
+            }
+        ]
+    }
+
     onTaskChange(e) {
         let selectedTasks = [...this.state.tasks];
         if(e.checked)
@@ -581,6 +588,7 @@ export class Dashboard extends Component {
 
     componentDidMount() {
         this.carservice.getCarsSmall().then(data => this.setState({cars: data}));
+        this.createTeam();
     }
 
     // !TODO MOVE THIS TO INDIVIDUAL STATE COMPONENT (Re-use in MENTOR DASHBOARD)
@@ -684,14 +692,14 @@ export class Dashboard extends Component {
         const AssignmentsListComponent = this.AssignmentsList;
         return (
             <div className="p-grid p-fluid dashboard">
+                {/* <ProfileCard /> Fix Responsiveness */}
                 <KeyCard />
-
                 <TaskStatsCard />
 
                 <TaskCard onTaskChange= { this.onTaskChange } 
                 state = { this.state.tasks }/>
 
-                <GroupCard />
+                <GroupCard groupData={this.team}/>
 
                 {/* TODO MOVE THIS TO INDIVIDUAL COMPONENT */}
                 <AssignmentsListComponent />
@@ -700,8 +708,6 @@ export class Dashboard extends Component {
                 <SkillMap Data = {this.state.radarData} />
                 
                 <Calendar events= {events} fullcalendarOptions={fullcalendarOptions} />
-
-
 
                 <ActivityCard />
             </div>
