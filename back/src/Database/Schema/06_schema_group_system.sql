@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS groups;
 CREATE TABLE groups (
-	group_id integer,
-	group_type text,
-	group_name integer,
+	group_id integer PRIMARY KEY AUTOINCREMENT,
+	group_type text NOT NULL DEFAULT 'research',
+	group_name integer NOT NULL DEFAULT '',
 	project_id integer,
 	FOREIGN KEY(project_id) 
     REFERENCES projects(project_id) 
@@ -26,4 +26,6 @@ CREATE TABLE group_scrum (
 	endDate datetime,
 	FOREIGN KEY(group_id) 
     REFERENCES groups(group_id) 
+	FOREIGN KEY(user_id) 
+    REFERENCES user_account(user_id) 
 );
