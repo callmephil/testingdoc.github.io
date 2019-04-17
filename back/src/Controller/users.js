@@ -3,7 +3,7 @@ import Express from 'express'
 const app = Express();
 
 export default async (controller, isLoggedIn) => {
-    app.get('/', (req, res, next) => res.send('Ok from user datas'))
+    // app.get('/', (req, res, next) => res.send('Ok from user datas'))
     
     const controllerCall = async (method, props, res, next) => {
         try {
@@ -17,68 +17,36 @@ export default async (controller, isLoggedIn) => {
         }
     }
     
-    app.get('/get/:user_id', async (req, res, next) => {
+    app.get('/:user_id', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
-        console.log(user_id);
         controllerCall('getUser', user_id, res, next)
     });
     
-    app.get('/list', async (req, res, next) => {
-        const {
-            order,
-            desc,
-            limit,
-            start,
-        } = req.query;
-        
+    app.get('/', async (req, res, next) => {
         controllerCall('getAllUsers', {
-            order,
-            desc,
-            limit,
-            start,
+            ...req.query,
         }, res, next)
     });
     
     app.post('/', async (req, res, next) => {
-        const {
-            firstname,
-            lastname,
-            email,
-            phoneNumber,
-            auth0_sub,
-        } = req.body;
-        
         controllerCall('createUser', {
-            firstname,
-            lastname,
-            email,
-            phoneNumber,
-            auth0_sub,
+            ...req.body,
         }, res, next)
     });
-    app.delete('/:user_id', async (req, res, next) => {
+    
+    app.put('/:user_id', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
-        
-        const {
-            firstname,
-            lastname,
-            email,
-            phoneNumber,
-        } = req.body;
-        
         controllerCall('updateUser', {
+            ...req.body,
             user_id,
-            firstname,
-            lastname,
-            email,
-            phoneNumber,
         }, res, next)
     });
-    app.post('/ban/:user_id', async (req, res, next) => {
+    
+    app.put('/ban/:user_id', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
@@ -87,7 +55,48 @@ export default async (controller, isLoggedIn) => {
             user_id,
         }, res, next)
     });
-
-
+    
+    /*
+     * User Links
+     * */
+    
+    app.get('/links/:user_id', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        
+        controllerCall('getUserLink', {
+            user_id,
+        }, res, next)
+    });
+    
+    app.post('/links', async (req, res, next) => {
+        controllerCall('createUserLink', {
+            ...req.body,
+        }, res, next)
+    });
+    
+    app.put('/links/:user_id/:row_id', async (req, res, next) => {
+        const {
+            user_id,
+            row_id,
+        } = req.params;
+       
+        controllerCall('updateUserLink', {
+            user_id,
+            row_id,
+            ...req.body,
+        }, res, next)
+    });
+    
+    app.delete('/links/:user_id', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        
+        controllerCall('deleteUserLink', {
+            user_id,
+        }, res, next)
+    });
     return app;
 }

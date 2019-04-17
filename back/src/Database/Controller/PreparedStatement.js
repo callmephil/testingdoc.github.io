@@ -1,10 +1,10 @@
 const queryList = [
   // Users
   {
-    USER_INS: `INSERT INTO user_account (firstname, lastname, email, phoneNumber, auth0_sub) VALUES 
+    USER_INS: `INSERT INTO user_account (firstname, lastname, email, phoneNumber, auth0_sub) VALUES
       ($firstname, $lastname, $email, $phoneNumber, $auth0_sub)`,
-    USER_UPD: `UPDATE user_account SET firstname = $firstname, lastname = $lastname, email = $email, phoneNumber = $phoneNumber WHERE user_id = ?`,
-    USER_BAN: `UPDATE user_account SET disabled = 1 WHERE user_id = ?`,
+    USER_UPD: `UPDATE user_account SET firstname = $firstname, lastname = $lastname, email = $email, phoneNumber = $phoneNumber WHERE user_id = @id`,
+    USER_BAN: `UPDATE user_account SET disabled = 1 WHERE user_id = @id`,
     USER_SEL: `SELECT * FROM user_account WHERE user_id = ?`,
     USER_SEL_ALL: `SELECT * FROM user_account`,
 
@@ -12,7 +12,7 @@ const queryList = [
       $user_id, $link_type, $link, $last_update)`,
     USER_LINKS_SEL: `SELECT * FROM user_links WHERE user_id = ?`,
     USER_LINKS_DEL: `DELETE FROM user_links WHERE user_id = ? and link = ?`,
-    USER_LINKS_UPD: `UPDATE user_links SET link = $link WHERE user_id = ? and rowId = ?`,
+    USER_LINKS_UPD: `UPDATE user_links SET link = $link WHERE user_id = @id and rowId = ?`,
 
     USER_SKILLS_INS: `INSERT INTO user_skills (user_id, skill_id, value) VALUES ($user_id, $skill_id, $value)`,
     USER_SKILLS_UPD: `UPDATE user_skills SET value = $value WHERE user_id = $user_id and skill_id = $skill_id`,
@@ -36,10 +36,10 @@ const queryList = [
   },
   // ASSIGNMENTS
   {
-    ASSIGNMENT_INS: `INSERT INTO assignment (mentor_id, task_id, link, message, startDate, endDate) VALUES 
+    ASSIGNMENT_INS: `INSERT INTO assignment (mentor_id, task_id, link, message, startDate, endDate) VALUES
       ($mentor_id, $task_id, $link, $message, $startDate, $endDate)`,
     ASSIGNMENT_DEL: `DELETE FROM assignment WHERE assignment_id = ?`,
-    ASSIGNMENT_UPD: `UPDATE assignment SET task_id = $task_id, link = $link, message = $message, startDate = $startDate, endDate = $endDate 
+    ASSIGNMENT_UPD: `UPDATE assignment SET task_id = $task_id, link = $link, message = $message, startDate = $startDate, endDate = $endDate
       WHERE assignment_id = ?`,
     ASSIGNMENT_SEL: `SELECT * FROM assignment WHERE assignment_id = ?`,
     ASSIGNMENT_SEL_ALL: `SELECT * FROM assignment WHERE endDate < ?`,
@@ -58,7 +58,7 @@ const queryList = [
     ($link, $type, $name, $key_range, $isRepeatable)`,
     TASK_DEL: `DELETE FROM tasks WHERE task_id = ?`,
 
-    TASK_PROPERTIES_INS:`INSERT INTO task_requirements (task_id, skill_id) VALUES 
+    TASK_PROPERTIES_INS:`INSERT INTO task_requirements (task_id, skill_id) VALUES
     ($task_id, $skill_id)`,
     TASK_PROPERTIES_DEL:`DELETE FROM task_requirements WHERE task_id = ? AND skill_id = ?`
   },
