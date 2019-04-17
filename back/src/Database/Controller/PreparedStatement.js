@@ -130,12 +130,18 @@ const executeToDatabase = stmt => {
       return result.changes;
     };
 
+    const DELETE_PROPS = props => {
+      const result = stmt.run({...props});
+      return result.changes;
+    }
+
     const QueryCenter = {
       SELECT,
       SELECT_ALL,
       INSERT,
       UPDATE,
-      DELETE
+      DELETE,
+      DELETE_PROPS
     };
 
     return QueryCenter;
