@@ -1,66 +1,118 @@
 import React, { Component } from "react";
-import "./ProfileCard.css";
+import "./ProfileCard.scss";
 
 export default class ProfileCard extends Component {
   render() {
     return (
-        <div className="custom-card">
-          <div className="custom-additional">
-            <div className="custom-user-card">
-              <div className="custom-level custom-center">Student</div>
-              <div className="custom-points custom-center">5,312 Keys</div>
-              <img className="custom-center"
-                      src={"assets/layout/images/profile.png"}
-                      width="56"
-                      alt={"Test"}
-                />
-            </div>
-            <div className="custom-more-info">
-              <h1>Jane Doe</h1>
-              <div className="custom-coords">
-                <span>Group Name</span>
-                <span>Joined January 2019</span>
-              </div>
-              <div className="custom-coords">
-                <span>Student</span>
-                <span>Codi</span>
-              </div>
-              <div className="custom-stats">
-                <div>
-                  <div className="custom-title">Awards</div>
-                  <i className="custom-fa fa-trophy" />
-                  <div className="custom-value">2</div>
-                </div>
-                <div>
-                  <div className="custom-title">Matches</div>
-                  <i className="custom-fa fa-gamepad" />
-                  <div className="custom-value">27</div>
-                </div>
-                <div>
-                  <div className="custom-title">Pals</div>
-                  <i className="custom-fa fa-group" />
-                  <div className="custom-value">123</div>
-                </div>
-                <div>
-                  <div className="custom-title">Coffee</div>
-                  <i className="custom-fa fa-coffee" />
-                  <div className="custom-value custom-infinity">∞</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="custom-general">
-            <h1>Jane Doe</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a
-              volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut
-              pulvinar.
-            </p>
-            <span className="custom-more">
-              Mouse over the card for more info
-            </span>
-          </div>
+        <div className="wrapper">
+  <div className="profile-card js-profile-card">
+    <div className="profile-card__img">
+      <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1537638518/Ba%C5%9Fl%C4%B1ks%C4%B1z-1.jpg" alt="profile card" />
+    </div>
+
+    <div className="profile-card__cnt js-profile-cnt">
+      <div className="profile-card__name">Muhammed Erdem</div>
+      <div className="profile-card__txt">Front-end Developer from <strong>Mesopotamia</strong></div>
+      <div className="profile-card-loc">
+        <span className="profile-card-loc__icon">
+          <svg className="icon"><use href="#icon-location"></use></svg>
+        </span>
+
+        <span className="profile-card-loc__txt">
+          Istanbul, Turkey
+        </span>
+      </div>
+
+      <div className="profile-card-inf">
+        <div className="profile-card-inf__item">
+          <div className="profile-card-inf__title">1598</div>
+          <div className="profile-card-inf__txt">Followers</div>
         </div>
+
+        <div className="profile-card-inf__item">
+          <div className="profile-card-inf__title">65</div>
+          <div className="profile-card-inf__txt">Following</div>
+        </div>
+
+        <div className="profile-card-inf__item">
+          <div className="profile-card-inf__title">123</div>
+          <div className="profile-card-inf__txt">Articles</div>
+        </div>
+
+        <div className="profile-card-inf__item">
+          <div className="profile-card-inf__title">85</div>
+          <div className="profile-card-inf__txt">Works</div>
+        </div>
+      </div>
+
+      <div className="profile-card-social">
+        <a href="https://www.facebook.com/iaMuhammedErdem" className="profile-card-social__item facebook" target="_blank">
+          <span className="icon-font">
+              <svg className="icon"><use href="#icon-facebook"></use></svg>
+          </span>
+        </a>
+
+        <a href="https://twitter.com/iaMuhammedErdem" className="profile-card-social__item twitter" target="_blank">
+          <span className="icon-font">
+              <svg className="icon"><use href="#icon-twitter"></use></svg>
+          </span>
+        </a>
+
+        <a href="https://www.instagram.com/iamuhammederdem" className="profile-card-social__item instagram" target="_blank">
+          <span className="icon-font">
+              <svg className="icon"><use href="#icon-instagram"></use></svg>
+          </span>
+        </a>
+
+        <a href="https://www.behance.net/iaMuhammedErdem" className="profile-card-social__item behance" target="_blank">
+          <span className="icon-font">
+              <svg className="icon"><use href="#icon-behance"></use></svg>
+          </span>
+        </a>
+
+        <a href="https://github.com/muhammederdem" className="profile-card-social__item github" target="_blank">
+          <span className="icon-font">
+              <svg className="icon"><use href="#icon-github"></use></svg>
+          </span>
+        </a>
+
+        <a href="https://codepen.io/JavaScriptJunkie" className="profile-card-social__item codepen" target="_blank">
+          <span className="icon-font">
+              <svg className="icon"><use href="#icon-codepen"></use></svg>
+          </span>
+        </a>
+
+        <a href="http://muhammederdem.com.tr/" className="profile-card-social__item link" target="_blank">
+          <span className="icon-font">
+              <svg className="icon"><use href="#icon-link"></use></svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+    <div className="profile-card-message js-message">
+      <form className="profile-card-form">
+        <div className="profile-card-form__container">
+          <textarea placeholder="Say something..."></textarea>
+        </div>
+
+        <div className="profile-card-form__bottom">
+          <button className="profile-card__button button--blue js-message-close">
+            Send
+          </button>
+
+          <button className="profile-card__button button--gray js-message-close">
+            Cancel
+          </button>
+        </div>
+      </form>
+
+      <div className="profile-card__overlay js-message-close"></div>
+    </div>
+
+  </div>
+</div>
     );
   }
 }

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Column} from 'primereact/column';
 import {DataTable} from 'primereact/datatable';
-
-
+import ProfileCard from '../../components/ProfileCard';
 
 
 
