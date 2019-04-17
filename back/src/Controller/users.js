@@ -76,15 +76,13 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     });
     
-    app.put('/links/:user_id/:row_id', async (req, res, next) => {
+    app.put('/links/:user_id', async (req, res, next) => {
         const {
             user_id,
-            row_id,
         } = req.params;
-       
+        
         controllerCall('updateUserLink', {
             user_id,
-            row_id,
             ...req.body,
         }, res, next)
     });
@@ -96,7 +94,119 @@ export default async (controller, isLoggedIn) => {
         
         controllerCall('deleteUserLink', {
             user_id,
+            ...req.body,
         }, res, next)
     });
+    
+    app.get('/skills/:user_id', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        
+        controllerCall('getUserSkills', {
+            user_id,
+        }, res, next)
+    })
+    
+    app.get('/skills/:user_id', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        
+        controllerCall('getUserSkills', {
+            user_id,
+            ...req.body,
+        }, res, next)
+    })
+    
+    app.post('/skills', async (req, res, next) => {
+        controllerCall('createUserSkills', {
+            ...req.body,
+        }, res, next)
+    })
+    
+    app.patch('/skills/:user_id', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        
+        controllerCall('updateUserSkill', {
+            user_id,
+            ...req.body,
+        }, res, next)
+    })
+    
+    // TODO: After MVP
+    app.get('/competencies/:user_id', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        
+        controllerCall('getUserCompetencies', {
+            user_id,
+            ...req.body,
+        }, res, next)
+    })
+    
+    // TODO: After MVP
+    app.post('/competencies', async (req, res, next) => {
+        controllerCall('createUserCompetencies', {
+            ...req.body,
+        }, res, next)
+    })
+    
+    // TODO: After MVP
+    app.patch('/competencies/:user_id', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        
+        controllerCall('updateUserCompetencies', {
+            user_id,
+            ...req.body,
+        }, res, next)
+    })
+    
+    app.get('/notes/:user_id', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        
+        controllerCall('getUserNote', {
+            user_id,
+        }, res, next)
+    })
+    app.get('/notes', async (req, res, next) => {
+       // TODO: return only success
+        controllerCall('getAllUserNotes', {}, res, next)
+    })
+    
+    app.post('/notes', async (req, res, next) => {
+        controllerCall('createUserNote', {
+            ...req.body,
+        }, res, next)
+    })
+    
+    app.patch('/notes/:rowId', async (req, res, next) => {
+        const {
+            rowId,
+        } = req.params;
+        
+        controllerCall('updateUserNote', {
+            rowId,
+            ...req.body,
+        }, res, next)
+    })
+    
+    app.delete('/notes/:rowId', async (req, res, next) => {
+        const {
+            rowId,
+        } = req.params;
+        
+        controllerCall('deleteUserNote', {
+            rowId,
+        }, res, next)
+    })
+    
     return app;
 }
