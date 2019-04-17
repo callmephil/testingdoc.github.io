@@ -33,6 +33,7 @@ import 'primeflex/primeflex.css';
 import 'fullcalendar/dist/fullcalendar.css';
 import './layout/layout.css';
 import './App.css';
+import Studentprofile from './pages/Studentprofile';
 
 class App extends Component {
 
@@ -202,6 +203,8 @@ class App extends Component {
                     <Route path="/misc" component={MiscDemo} />
                     <Route path="/empty" component={EmptyPage} />
                     <Route path="/documentation" component={Documentation} />
+                    <Route path="/studentprofile" component={Studentprofile} />
+
                 </div>
 
                 <AppFooter />

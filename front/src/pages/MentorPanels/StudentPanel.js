@@ -18,7 +18,6 @@ const Studentslistcard = () => {
                     alt="avatar1"
                   />
                   <span className="name">Claire Williams</span>
-                  <span className="email">clare@pf-sigma.com</span>
                 </button>
               </li>
               <li>
@@ -29,7 +28,6 @@ const Studentslistcard = () => {
                     alt="avatar2"
                   />
                   <span className="name">Jason Dourne</span>
-                  <span className="email">jason@pf-sigma.com</span>
                 </button>
               </li>
               <li>
@@ -40,7 +38,6 @@ const Studentslistcard = () => {
                     alt="avatar3"
                   />
                   <span className="name">Jane Davidson</span>
-                  <span className="email">jane@pf-sigma.com</span>
                 </button>
               </li>
               <li>
@@ -51,7 +48,6 @@ const Studentslistcard = () => {
                     alt="avatar4"
                   />
                   <span className="name">Tony Corleone</span>
-                  <span className="email">tony@pf-sigma.com</span>
                 </button>
               </li>
               <li>
@@ -62,7 +58,6 @@ const Studentslistcard = () => {
                     alt="avatar4"
                   />
                   <span className="name">Tony Corleone</span>
-                  <span className="email">tony@pf-sigma.com</span>
                 </button>
               </li>
               <li>
@@ -73,7 +68,6 @@ const Studentslistcard = () => {
                     alt="avatar4"
                   />
                   <span className="name">Tony Corleone</span>
-                  <span className="email">tony@pf-sigma.com</span>
                 </button>
               </li>
               <li>
@@ -84,7 +78,6 @@ const Studentslistcard = () => {
                     alt="avatar4"
                   />
                   <span className="name">Tony Corleone</span>
-                  <span className="email">tony@pf-sigma.com</span>
                 </button>
               </li>
 
@@ -108,10 +101,12 @@ export class StudentPanel extends Component {
                         <h1>Student Panel</h1>
                         <p>Use this page to start from scratch and place your custom content.</p>
 
-                    <Studentslistcard></Studentslistcard>
+                        <div className="p-grid p-fluid dashboard">
+                            <Studentslistcard></Studentslistcard>
+                        </div>
                     </div>
                 </div>
             </div>
         );
     }
-}
+  }
