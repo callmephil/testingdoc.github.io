@@ -6,22 +6,35 @@ const initializeTasks = async stmtTable => {
     const {
       TASK_INS,
       TASK_DEL,
-      ASK_PROPERTIES_INS,
+      TASK_PROPERTIES_INS,
       TASK_PROPERTIES_DEL
     } = stmtTable;
     
     // const getTask = (id) => {
     //     return executeToDatabase(TASK_INS).SELECT(id);
     // }
-    const createTask = () => {
-      return executeToDatabase(TASK_INS).INSERT(id);
+    const createTask = (props) => {
+      return executeToDatabase(TASK_INS).INSERT(props);
     };
 
-    const deleteTask = () => {
+    const deleteTask = (id) => {
       return executeToDatabase(TASK_DEL).DELETE(id);
     };
 
-    const controller = {};
+    const createTaskProperties = (props) => {
+      return executeToDatabase(TASK_PROPERTIES_INS).INSERT(props);
+    }
+
+    const deleteTaskProperties = (props) => {
+      return executeToDatabase(TASK_PROPERTIES_DEL).DELETE_PROPS(props);
+    }
+
+    const controller = {
+      createTask,
+      deleteTask,
+      createTaskProperties,
+      deleteTaskProperties
+    };
 
     return controller;
   } catch (e) {
