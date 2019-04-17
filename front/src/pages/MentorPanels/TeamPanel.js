@@ -70,11 +70,11 @@ render(){
               </li>
             </ul>
             <div className="p-col-12 p-lg-6">
-                <Button label="Create New Team" icon="pi pi-plus" className="p-button-success" style={{marginRight:'.25em'}} />
+                <Button label="Edit Team" icon="pi pi-plus" className="p-button-info" style={{marginRight:'.25em'}} />
                 <div className="p-col-12 p-md-4">
                     {/* <ToggleButton checked={this.state.toggleButtonValue} onChange={event => this.setState({toggleButtonValue: event.value})} /> */}
                     <InputSwitch onLabel="Yes" offLabel="No" checked={this.state.value} onChange={(e) => this.setState({value: e.value})} />
-                    <p>Activate</p>
+                    <p>Activate Group</p>
                     
                 </div>
             </div>
