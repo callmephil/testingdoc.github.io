@@ -1,31 +1,34 @@
 DROP TABLE IF EXISTS user_account;
 CREATE TABLE user_account (
 	user_id integer PRIMARY KEY AUTOINCREMENT,
-	firstname text,
-	lastname text,
-	email text,
+	firstname text NOT NULL,
+	lastname text NOT NULL,
+	email text UNIQUE,
 	phoneNumber text,
-	auth0_sub text,
+	auth0_sub text UNIQUE
 	security_level integer DEFAULT 0,
 	disabled integer DEFAULT 0
 );
 
 DROP TABLE IF EXISTS user_links;
 CREATE TABLE user_links (
-	user_id integer,
-	link_type text,
-	link text,
+	user_id integer NOT NULL,
+	link_type text NOT NULL,
+	link text UNIQUE,
 	last_update datetime
 	FOREIGN KEY(user_id) 
     REFERENCES user_account(user_id) 
 );
 
-DROP TABLE IF EXISTS mentor_comments;
-CREATE TABLE mentor_comments (
-	user_id integer,
-	mentor_id integer,
-	comment_type text,
-	comment text
+
+-- Get RowID HERE instead of note_id...
+DROP TABLE IF EXISTS user_notes;
+CREATE TABLE user_notes (
+	mentor_id integer NOT NULL DEFAULT -1,
+	user_id integer NOT NULL DEFAULT -1,
+	type text NOT NULL DEFAULT 'internal',
+	activity_id integer DEFAULT -1,
+	comment text NOT NULL DEFAULT ''
 	FOREIGN KEY(user_id) 
     REFERENCES user_account(user_id) 
 	FOREIGN KEY(mentor_id) 
