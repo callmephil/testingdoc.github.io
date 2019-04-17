@@ -54,7 +54,7 @@ CREATE TABLE user_attendance_streak (
 	REFERENCES user_account(user_id)
 );
 
-DROP TRIGGER aft_insert_user_account;
+DROP TRIGGER IF EXISTS aft_insert_user_account;
 CREATE TRIGGER aft_insert_user_account AFTER INSERT ON user_account
 BEGIN
 INSERT INTO user_attendance_streak(user_id)

@@ -20,6 +20,7 @@ const queryList = [
 
     USER_COMPETENCIES_INS: `INSERT INTO user_competencies (user_id, competencie_id, value) VALUES ($user_id, $competencie_id, $value)`,
     USER_COMPETENCIES_UPD: `UPDATE user_competencies SET value = $value WHERE user_id = ? AND competencie_id = ?`,
+    USER_COMPETENCIES_SEL: `SELECT * FROM user_competencies WHERE user_id = ?`,
 
     USER_NOTES_INS:`INSERT INTO user_notes (note_id, mentor_id, user_id, type, id, comment)`,
     USER_NOTES_UPD:`UPDATE user_notes SET type = $type, id = $id, comment = $comment WHERE note_id = ?` ,
@@ -30,8 +31,9 @@ const queryList = [
   },
   // ATTENDANCES
   {
-    ATTENDANCE_INS: `INSERT INTO user_attendance (user_id, date, status, reason, key_amount) VALUES
-      ($user_id, $date, $status, $reason, $key_amount)`,
+    ATTENDANCE_INS: `INSERT INTO user_attendance (user_id, date, time, status, reason, key_amount) VALUES
+      ($user_id, $date, $time, $status, $reason, $key_amount)`,
+    ATTENDANCE_UPD: `UPDATE user_attendance SET time = $time, status = $status, reason = $reason WHERE user_id = ? and date = ?`,
     ATTENDANCE_STREAK_UPD: `UPDATE user_attendance_streak SET streak = $streak, max_streak = $max_streak WHERE user_id = ?`,
   },
   // ASSIGNMENTS
@@ -50,7 +52,7 @@ const queryList = [
       ($group_type, $group_name, $project_id)`,
     GROUP_DISABLE: `UPDATE groups SET disabled = 1 WHERE group_id = ?`,
     GROUP_MEMBER_INS: `INSERT INTO group_members (group_id, user_id) VALUES ($group_id, $user_id)`,
-    GROUP_MEMBER_DEL: `DELETE FROM groups_members WHERE group_id = ? AND user_id = ?`
+    GROUP_MEMBER_DEL: `DELETE FROM group_members WHERE group_id = ? AND user_id = ?`
   },
   // TASKS
   {
@@ -58,9 +60,9 @@ const queryList = [
     ($link, $type, $name, $key_range, $isRepeatable)`,
     TASK_DEL: `DELETE FROM tasks WHERE task_id = ?`,
 
-    TASK_PROPERTIES_INS:`INSERT INTO task_requirements (task_id, skill_id) VALUES
+    TASK_PROPERTIES_INS:`INSERT INTO task_properties (task_id, skill_id) VALUES 
     ($task_id, $skill_id)`,
-    TASK_PROPERTIES_DEL:`DELETE FROM task_requirements WHERE task_id = ? AND skill_id = ?`
+    TASK_PROPERTIES_DEL:`DELETE FROM task_properties WHERE task_id = ? AND skill_id = ?`
   },
   // PROJECTS
   {
