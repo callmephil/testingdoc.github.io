@@ -19,21 +19,22 @@ const queryList = [
     USER_SKILLS_SEL: `SELECT * FROM user_skills WHERE user_id = ?`,
 
     USER_COMPETENCIES_INS: `INSERT INTO user_competencies (user_id, competencie_id, value) VALUES ($user_id, $competencie_id, $value)`,
-    USER_COMPETENCIES_UPD: `UPDATE user_competencies SET value = $value WHERE user_id = ? AND competencie_id = ?`,
-    USER_COMPETENCIES_SEL: `SELECT * FROM user_competencies WHERE user_id = ?`,
+    USER_COMPETENCIES_UPD: `UPDATE user_competencies SET value = $value WHERE user_id = @id AND competencie_id = ?`,
+    USER_COMPETENCIES_SEL: `SELECT * FROM user_competencies WHERE user_id = @id`,
 
-    USER_NOTES_INS:`INSERT INTO user_notes (note_id, mentor_id, user_id, type, id, comment)`,
-    USER_NOTES_UPD:`UPDATE user_notes SET type = $type, id = $id, comment = $comment WHERE note_id = ?` ,
-    USER_NOTES_DEL:`DELETE FROM user_notes WHERE note_id = ?`,
+    USER_NOTES_INS:`INSERT INTO user_notes (mentor_id, user_id, type, activity_id, comment) VALUES 
+    ($mentor_id, $user_id, $type, $activity_id, $comment)`,
+    USER_NOTES_UPD:`UPDATE user_notes SET type = $type, activity_id = $activity_id, comment = $comment WHERE rowId = @id` ,
+    USER_NOTES_DEL:`DELETE FROM user_notes WHERE rowId = ?`,
     USER_NOTES_SEL:`SELECT * FROM user_notes WHERE user_id = ?`,
     USER_NOTES_SEL_ALL:`SELECT * FROM user_notes`,
     // USER_ASSIGNMENT_INS: `INSERT INTO user_assignment `, TODO
   },
   // ATTENDANCES
   {
-    ATTENDANCE_INS: `INSERT INTO user_attendance (user_id, date, time, status, reason, key_amount) VALUES
+    ATTENDANCE_INS: `INSERT INTO user_attendances (user_id, date, time, status, reason, key_amount) VALUES
       ($user_id, $date, $time, $status, $reason, $key_amount)`,
-    ATTENDANCE_UPD: `UPDATE user_attendance SET time = $time, status = $status, reason = $reason WHERE user_id = ? and date = ?`,
+    ATTENDANCE_UPD: `UPDATE user_attendances SET time = $time, status = $status, reason = $reason WHERE user_id = ? and date = ?`,
     ATTENDANCE_STREAK_UPD: `UPDATE user_attendance_streak SET streak = $streak, max_streak = $max_streak WHERE user_id = ?`,
   },
   // ASSIGNMENTS
@@ -69,7 +70,7 @@ const queryList = [
     PROJECT_INS: `INSERT INTO projects (project_name) VALUES ($project_name)`,
     PROJECT_DEL: `DELETE FROM projects WHERE project_id = ?`,
     PROJECT_TASK_INS: `INSERT INTO projects_tasks (project_id, task_id) VALUES ($project_id, $task_id)`,
-    PROJECT_TASK_DEL: `DELETE FROM projects_task WHERE task_id = ? AND project_id = ?`,
+    PROJECT_TASK_DEL: `DELETE FROM projects_tasks WHERE task_id = ? AND project_id = ?`,
     PROJECT_COMPETENCIES_INS: `INSERT INTO project_competencies (project_id, skill_id) VALUES ($project_id, $skill_id)`,
     PROJECT_COMPETENCIES_DEL: `DELETE FROM project_competencies WHERE project_id = ? AND skill_id = ?`,
   },

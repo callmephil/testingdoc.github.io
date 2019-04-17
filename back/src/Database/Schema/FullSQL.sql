@@ -33,7 +33,7 @@ CREATE TABLE user_notes (
     REFERENCES user_account(user_id) 
 );
 
-DROP TABLE IF EXISTS user_attendance;
+DROP TABLE IF EXISTS user_attendances;
 CREATE TABLE user_attendances (
 	user_id integer,
 	date datetime,
@@ -134,14 +134,15 @@ CREATE TABLE tasks (
 	link text NOT NULL UNIQUE,
 	type integer NOT NULL DEFAULT 0,
 	name text NOT NULL DEFAULT '',
+	key_range integer NOT NULL DEFAULT 0,
 	isRepeatable integer DEFAULT 0
 );
 
-DROP TABLE IF EXISTS task_propreties;
-CREATE TABLE task_propreties (
+DROP TABLE IF EXISTS task_properties;
+CREATE TABLE task_properties (
+	title text NOT NULL DEFAULT '',
 	task_id integer,
 	skill_id integer NOT NULL DEFAULT -1,
-	key_range integer NOT NULL DEFAULT 0,
 	FOREIGN KEY(task_id) 
     REFERENCES tasks(task_id) 
 	FOREIGN KEY(skill_id) 
@@ -180,6 +181,7 @@ CREATE TABLE groups (
 	group_type text NOT NULL DEFAULT 'research',
 	group_name integer NOT NULL DEFAULT '',
 	project_id integer,
+	disabled NOT NULL DEFAULT 0,
 	FOREIGN KEY(project_id) 
     REFERENCES projects(project_id) 
 );
