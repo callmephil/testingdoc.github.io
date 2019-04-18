@@ -34,8 +34,8 @@ const queryList = [
   {
     ATTENDANCE_INS: `INSERT INTO user_attendances (user_id, date, time, status, reason, key_amount) VALUES
       ($user_id, $date, $time, $status, $reason, $key_amount)`,
-    ATTENDANCE_UPD: `UPDATE user_attendances SET time = $time, status = $status, reason = $reason WHERE user_id = ? and date = ?`,
-    ATTENDANCE_STREAK_UPD: `UPDATE user_attendance_streak SET streak = $streak, max_streak = $max_streak WHERE user_id = ?`,
+    ATTENDANCE_UPD: `UPDATE user_attendances SET time = $time, status = $status, reason = $reason WHERE user_id = @id and date = ?`,
+    ATTENDANCE_STREAK_UPD: `UPDATE user_attendance_streak SET streak = $streak, max_streak = $max_streak WHERE user_id = @id`,
   },
   // ASSIGNMENTS
   {
@@ -43,7 +43,7 @@ const queryList = [
       ($mentor_id, $task_id, $link, $message, $startDate, $endDate)`,
     ASSIGNMENT_DEL: `DELETE FROM assignment WHERE assignment_id = ?`,
     ASSIGNMENT_UPD: `UPDATE assignment SET task_id = $task_id, link = $link, message = $message, startDate = $startDate, endDate = $endDate
-      WHERE assignment_id = ?`,
+      WHERE assignment_id = @id`,
     ASSIGNMENT_SEL: `SELECT * FROM assignment WHERE assignment_id = ?`,
     ASSIGNMENT_SEL_ALL: `SELECT * FROM assignment WHERE endDate < ?`,
   },
@@ -53,7 +53,7 @@ const queryList = [
       ($group_type, $group_name, $project_id)`,
     GROUP_DISABLE: `UPDATE groups SET disabled = 1 WHERE group_id = ?`,
     GROUP_MEMBER_INS: `INSERT INTO group_members (group_id, user_id) VALUES ($group_id, $user_id)`,
-    GROUP_MEMBER_DEL: `DELETE FROM group_members WHERE group_id = ? AND user_id = ?`,
+    GROUP_MEMBER_DEL: `DELETE FROM group_members WHERE group_id = $group_id AND user_id = $user_id`,
   },
   // TASKS
   {
@@ -63,22 +63,22 @@ const queryList = [
 
     TASK_PROPERTIES_INS:`INSERT INTO task_properties (task_id, skill_id) VALUES
     ($task_id, $skill_id)`,
-    TASK_PROPERTIES_DEL:`DELETE FROM task_properties WHERE task_id = ? AND skill_id = ?`
+    TASK_PROPERTIES_DEL:`DELETE FROM task_properties WHERE task_id = $task_id AND skill_id = $skill_id`
   },
   // PROJECTS
   {
     PROJECT_INS: `INSERT INTO projects (project_name) VALUES ($project_name)`,
     PROJECT_DEL: `DELETE FROM projects WHERE project_id = ?`,
     PROJECT_TASK_INS: `INSERT INTO projects_tasks (project_id, task_id) VALUES ($project_id, $task_id)`,
-    PROJECT_TASK_DEL: `DELETE FROM projects_tasks WHERE task_id = ? AND project_id = ?`,
+    PROJECT_TASK_DEL: `DELETE FROM projects_tasks WHERE task_id = $task_id AND project_id = $project_id`,
     PROJECT_COMPETENCIES_INS: `INSERT INTO project_competencies (project_id, skill_id) VALUES ($project_id, $skill_id)`,
-    PROJECT_COMPETENCIES_DEL: `DELETE FROM project_competencies WHERE project_id = ? AND skill_id = ?`,
+    PROJECT_COMPETENCIES_DEL: `DELETE FROM project_competencies WHERE project_id = $project_id AND skill_id = $skill_id`,
   },
   // SKILLS
   {
     SKILL_INS: `INSERT INTO skill_table (name, max_value, isStackable) VALUES
     ($name, $max_value, $isStackable)`,
-    SKILL_UPD: `UPDATE skill_table SET name = $name, max_value = $max_value, isStackable = $isStackable WHERE skill_id = ?`,
+    SKILL_UPD: `UPDATE skill_table SET name = $name, max_value = $max_value, isStackable = $isStackable WHERE skill_id = @id`,
     SKILL_DEL: `DELETE FROM skill_table WHERE skill_id = ?`,
   },
 ];
@@ -112,6 +112,10 @@ const executeToDatabase = stmt => {
       console.log(' id => ', id)
       return id ? stmt.all(id) : stmt.all();
     };
+
+    const SELECT_PROPS = (props, all) => {
+      return all ? stmt.all({...props}) : stmt.get({props})
+    } 
 
     const INSERT = props => {
       const result = stmt.run({
