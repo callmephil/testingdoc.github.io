@@ -1,7 +1,90 @@
 import React, { Component } from "react";
 import "./ProfileCard.scss";
 
+// JS FOR BUTTON ?
+// var messageBox = document.querySelector('.js-message');
+//   var btn = document.querySelector('.js-message-btn');
+//   var card = document.querySelector('.js-profile-card');
+//   var closeBtn = document.querySelectorAll('.js-message-close');
+
+//   btn.addEventListener('click',function (e) {
+//       e.preventDefault();
+//       card.classList.add('active');
+//   });
+
+//   closeBtn.forEach(function (element, index) {
+//      console.log(element);
+//       element.addEventListener('click',function (e) {
+//           e.preventDefault();
+//           card.classList.remove('active');
+//       });
+//   });
+
+const ProfileStatsInfo = ({ state }) => {
+  return (
+    <div className="profile-card-inf">
+      {state &&
+        state.map((info, index) => (
+          <div key={index} className="profile-card-inf__item">
+            <div className="profile-card-inf__title">{info.value}</div>
+            <div className="profile-card-inf__txt">{info.title}</div>
+          </div>
+        ))}
+    </div>
+  );
+};
+
+// TODO SVG ICONS
+const ProfileIconLinks = ({ state }) => {
+  return (
+    <div className="profile-card-social">
+    {state &&
+        state.map((info, index) => (
+        <a key={index} href={info.link} className={"profile-card-social__item " + info.type} target="_blank">
+          <span className="icon-font">
+              <svg className="icon"><use href={"#icon-" + info.type}></use></svg>
+          </span>
+        </a>
+        ))}
+    </div>
+  );
+}
+
 export default class ProfileCard extends Component {
+  constructor() {
+    super();
+    this.state = {
+        stats: [
+          {
+            title: 'Followers',
+            value: '1598',
+          },
+          {
+            title: 'Following',
+            value: '65',
+          },
+          {
+            title: 'Articles',
+            value: '123',
+          },
+          {
+            title: 'Works',
+            value: '85',
+          },
+        ],
+        iconLinks: [
+          {
+            link: 'https://www.facebook.com/iaMuhammedErdem', 
+            type: 'facebook'
+          },
+          {
+            link: 'https://twitter.com/iaMuhammedErdem', 
+            type: 'twitter'
+          },
+        ]
+    };
+  };
+
   render() {
     return (
         <div className="wrapper">
@@ -23,74 +106,17 @@ export default class ProfileCard extends Component {
         </span>
       </div>
 
-      <div className="profile-card-inf">
-        <div className="profile-card-inf__item">
-          <div className="profile-card-inf__title">1598</div>
-          <div className="profile-card-inf__txt">Followers</div>
-        </div>
+      <ProfileStatsInfo state={this.state.stats} />
 
-        <div className="profile-card-inf__item">
-          <div className="profile-card-inf__title">65</div>
-          <div className="profile-card-inf__txt">Following</div>
-        </div>
-
-        <div className="profile-card-inf__item">
-          <div className="profile-card-inf__title">123</div>
-          <div className="profile-card-inf__txt">Articles</div>
-        </div>
-
-        <div className="profile-card-inf__item">
-          <div className="profile-card-inf__title">85</div>
-          <div className="profile-card-inf__txt">Works</div>
-        </div>
-      </div>
-
-      <div className="profile-card-social">
-        <a href="https://www.facebook.com/iaMuhammedErdem" className="profile-card-social__item facebook" target="_blank">
-          <span className="icon-font">
-              <svg className="icon"><use href="#icon-facebook"></use></svg>
-          </span>
-        </a>
-
-        <a href="https://twitter.com/iaMuhammedErdem" className="profile-card-social__item twitter" target="_blank">
-          <span className="icon-font">
-              <svg className="icon"><use href="#icon-twitter"></use></svg>
-          </span>
-        </a>
-
-        <a href="https://www.instagram.com/iamuhammederdem" className="profile-card-social__item instagram" target="_blank">
-          <span className="icon-font">
-              <svg className="icon"><use href="#icon-instagram"></use></svg>
-          </span>
-        </a>
-
-        <a href="https://www.behance.net/iaMuhammedErdem" className="profile-card-social__item behance" target="_blank">
-          <span className="icon-font">
-              <svg className="icon"><use href="#icon-behance"></use></svg>
-          </span>
-        </a>
-
-        <a href="https://github.com/muhammederdem" className="profile-card-social__item github" target="_blank">
-          <span className="icon-font">
-              <svg className="icon"><use href="#icon-github"></use></svg>
-          </span>
-        </a>
-
-        <a href="https://codepen.io/JavaScriptJunkie" className="profile-card-social__item codepen" target="_blank">
-          <span className="icon-font">
-              <svg className="icon"><use href="#icon-codepen"></use></svg>
-          </span>
-        </a>
-
-        <a href="http://muhammederdem.com.tr/" className="profile-card-social__item link" target="_blank">
-          <span className="icon-font">
-              <svg className="icon"><use href="#icon-link"></use></svg>
-          </span>
-        </a>
-
+      <ProfileIconLinks state={this.state.iconLinks} />
+      
+      {/* @TODO ADD JAVASCRIPT TO THIS FORM */}
+      <div className="profile-card-ctr">
+        <button className="profile-card__button button--orange js-message-btn">Comment</button>
       </div>
     </div>
 
+    {/* @TODO MOVE THIS TO ACTION FORM */}
     <div className="profile-card-message js-message">
       <form className="profile-card-form">
         <div className="profile-card-form__container">
