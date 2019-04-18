@@ -7,13 +7,13 @@ const queryList = [
     USER_BAN: `UPDATE user_account SET disabled = 1 WHERE user_id = @id`,
     USER_SEL: `SELECT * FROM user_account WHERE user_id = ?`,
     USER_SEL_ALL: `SELECT * FROM user_account`,
-    
+
     USER_LINKS_INS: `INSERT INTO user_links (user_id, link_type, link, last_update) VALUES (
       $user_id, $link_type, $link, $last_update)`,
     USER_LINKS_SEL: `SELECT * FROM user_links WHERE user_id = ?`,
     USER_LINKS_DEL: `DELETE FROM user_links WHERE user_id = @id and link = $link`,
     USER_LINKS_UPD: `UPDATE user_links SET link = $link WHERE user_id = $user_id and rowId = @id`,
-    
+
     USER_SKILLS_INS: `INSERT INTO user_skills (user_id, skill_id, value) VALUES ($user_id, $skill_id, $value)`,
     USER_SKILLS_UPD: `UPDATE user_skills SET value = $value WHERE user_id = $user_id and skill_id = $skill_id`,
     USER_SKILLS_SEL: `SELECT * FROM user_skills WHERE user_id = ?`,
@@ -25,7 +25,7 @@ const queryList = [
     USER_NOTES_INS:`INSERT INTO user_notes (mentor_id, user_id, type, activity_id, comment) VALUES
     ($mentor_id, $user_id, $type, $activity_id, $comment)`,
     USER_NOTES_UPD:`UPDATE user_notes SET type = $type, activity_id = $activity_id, comment = $comment WHERE rowId = @id` ,
-    USER_NOTES_DEL:`DELETE FROM user_notes WHERE rowId = ?`,
+    USER_NOTES_DEL:`DELETE FROM user_notes WHERE rowId = @id`,
     USER_NOTES_SEL:`SELECT * FROM user_notes WHERE user_id = ?`,
     USER_NOTES_SEL_ALL:`SELECT * FROM user_notes`,
     // USER_ASSIGNMENT_INS: `INSERT INTO user_assignment `, TODO
@@ -89,7 +89,8 @@ const prepareStmt = db => {
 
     queryList.forEach(element => {
       for (const key in element) {
-        stmt[key] = db.prepare(element[key]);
+        if (element.hasOwnProperty(key))
+          stmt[key] = db.prepare(element[key]);
       }
     });
 
@@ -103,10 +104,12 @@ const executeToDatabase = stmt => {
   try {
     // this is shit. change this thanks.
     const SELECT = id => {
+      console.log(' id => id', id);
       return id ? stmt.get(id) : stmt.get();
     };
 
     const SELECT_ALL = id => {
+      console.log(' id => ', id)
       return id ? stmt.all(id) : stmt.all();
     };
 
@@ -134,7 +137,7 @@ const executeToDatabase = stmt => {
       const result = stmt.run({...props});
       return result.changes;
     }
-    
+
     const QueryCenter = {
       SELECT,
       SELECT_ALL,
@@ -143,7 +146,7 @@ const executeToDatabase = stmt => {
       DELETE,
       DELETE_PROPS,
     };
-    
+
     return QueryCenter;
   } catch (e) {
     console.log(`preparedQueries error ${e}`);
