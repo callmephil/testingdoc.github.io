@@ -7,6 +7,9 @@ const initializeUsers = async (stmtTable) => {
             USER_SEL, USER_SEL_ALL, USER_INS, USER_UPD, USER_BAN, USER_LINKS_SEL, USER_LINKS_INS, USER_LINKS_UPD,
             USER_LINKS_DEL, USER_SKILLS_SEL, USER_SKILLS_INS, USER_SKILLS_UPD, USER_COMPETENCIES_INS, USER_COMPETENCIES_SEL,
             USER_COMPETENCIES_UPD, USER_NOTES_INS, USER_NOTES_UPD, USER_NOTES_DEL, USER_NOTES_SEL, USER_NOTES_SEL_ALL,
+            ATTENDANCE_INS, ATTENDANCE_UPD, ATTENDANCE_STREAK_UPD, USER_TASKS_INS, USER_TASKS_UPD, USER_TASKS_DEL,
+            USER_TASKS_SEL, USER_TASKS_SEL_ALL, USER_ASSIGNMENT_INS, USER_ASSIGNMENT_UPD, USER_ASSIGNMENT_DEL,
+            USER_ASSIGNMENT_SEL, USER_ASSIGNMENT_SEL_ALL,
         } = stmtTable;
 
         const getUser = (id) => {
@@ -89,6 +92,64 @@ const initializeUsers = async (stmtTable) => {
             props.id = rowId;
             return executeToDatabase(USER_NOTES_DEL).DELETE_PROPS(props)
         }
+
+        const createAttendance = (props) => {
+            return executeToDatabase(ATTENDANCE_INS).INSERT(props);
+        };
+
+        const updateAttendance = ({user_id, ...props}) => {
+            console.log({
+                ...props,
+                user_id,
+            })
+            return executeToDatabase(ATTENDANCE_UPD).UPDATE(user_id, props);
+        }
+
+        const updateAttendanceStreak = ({user_id, ...props}) => {
+            return executeToDatabase(ATTENDANCE_STREAK_UPD).UPDATE(user_id, props);
+        }
+
+        const createUserTask = (props) => {
+            return executeToDatabase(USER_TASKS_INS).INSERT(props);
+        }
+
+        const updateUserTask = ({user_id, ...props}) => {
+            props.user_id = user_id;
+            return executeToDatabase(USER_TASKS_UPD).UPDATE(user_id, props);
+        }
+
+        const deleteUserTask = (props) => {
+            return executeToDatabase(USER_TASKS_DEL).DELETE_PROPS(props);
+        }
+
+        const getUserTask = (props) => {
+            return executeToDatabase(USER_TASKS_SEL).SELECT_PROPS(props, false);
+        }
+
+        const getUserTasks = (user_id) => {
+            return executeToDatabase(USER_TASKS_SEL_ALL).SELECT_ALL(user_id);
+        }
+
+        const createUserAssignment = (props) => {
+            return executeToDatabase(USER_ASSIGNMENT_INS).INSERT(props);
+        }
+
+        const updateUserAssignment = ({user_id, ...props}) => {
+            return executeToDatabase(USER_ASSIGNMENT_UPD).UPDATE(user_id, props);
+        }
+
+        const getUserAssignment = (props) => {
+            return executeToDatabase(USER_ASSIGNMENT_SEL).SELECT_PROPS(props, false);
+        }
+
+        const getUserAssignments = (user_id) => {
+            return executeToDatabase(USER_ASSIGNMENT_SEL_ALL).SELECT_ALL(user_id);
+        }
+
+        const deleteUserAssignment = (props) => {
+            return executeToDatabase(USER_ASSIGNMENT_DEL).DELETE_PROPS(props);
+        }
+
         const controller = {
             getUser,
             getAllUsers,
@@ -110,6 +171,19 @@ const initializeUsers = async (stmtTable) => {
             createUserNote,
             updateUserNote,
             deleteUserNote,
+            createAttendance,
+            updateAttendance,
+            updateAttendanceStreak,
+            createUserTask,
+            updateUserTask,
+            deleteUserTask,
+            getUserTask,
+            getUserTasks,
+            createUserAssignment,
+            updateUserAssignment,
+            getUserAssignment,
+            getUserAssignments,
+            deleteUserAssignment,
 
         }
 

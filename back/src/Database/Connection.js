@@ -1,7 +1,6 @@
 import Database from 'better-sqlite3';
 import {prepareStmt} from './Controller/PreparedStatement';
 import Users from './Controller/Users';
-import Attendances from './Controller/Attendances';
 import Assignments from './Controller/Assignments';
 import Groups from './Controller/Groups';
 import Task from './Controller/Tasks';
@@ -27,14 +26,12 @@ const getConnection = async () => {
 
         const stmtData = await prepareStmt(Connection);
         const usersController = await Users(stmtData);
-        const attendancesController = await Attendances(stmtData);
         const assignmentsController = await Assignments(stmtData);
         const groupsController = await Groups(stmtData);
         const tasksController = await Task(stmtData);
 
         const controllers = {
             usersController,
-            attendancesController,
             assignmentsController,
             groupsController,
             tasksController,

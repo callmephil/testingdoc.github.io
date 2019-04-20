@@ -3,7 +3,6 @@ import Connection from './Database/Connection'
 import {isLoggedIn} from './Middleware/auth'
 /* Controllers */
 import usersControllerApp from './Controller/users'
-import attendancesControllerApp from './Controller/attendances'
 import assignmentsControllerApp from './Controller/assignments'
 import groupsControllerApp from './Controller/groups'
 import tasksControllerApp from './Controller/task'
@@ -16,15 +15,12 @@ const BACK_PORT = process.env.NODE_PORT;
 const start = async () => {
     /* Database Controllers */
     const DatabaseControllers = await Connection();
-    const {usersController, attendancesController, assignmentsController, groupsController, tasksController} = DatabaseControllers;
+    const {usersController, assignmentsController, groupsController, tasksController} = DatabaseControllers;
     app.get('/', (req, res, next) => res.send('ok'));
 
     // /* ROUTING DATA'S  */
     const users = await usersControllerApp(usersController, isLoggedIn, upload);
     app.use('/users', users);
-
-    const attendances = await attendancesControllerApp(attendancesController, isLoggedIn, upload);
-    app.use('/attendances', attendances);
 
     const assignments = await assignmentsControllerApp(assignmentsController, isLoggedIn, upload);
     app.use('/assignments', assignments);

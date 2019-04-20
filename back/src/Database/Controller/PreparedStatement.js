@@ -28,7 +28,21 @@ const queryList = [
     USER_NOTES_DEL:`DELETE FROM user_notes WHERE rowId = @id`,
     USER_NOTES_SEL:`SELECT * FROM user_notes WHERE user_id = ?`,
     USER_NOTES_SEL_ALL:`SELECT * FROM user_notes`,
-    // USER_ASSIGNMENT_INS: `INSERT INTO user_assignment `, TODO
+
+    USER_ASSIGNMENT_INS: `INSERT INTO user_assignment ( user_id, assignment_id, submission_link, isCompleted, key_amount) VALUES
+    ($user_id, $assignment_id, $submission_link, $isCompleted, $key_amount)`,
+    USER_ASSIGNMENT_UPD: `UPDATE user_assignment SET submission_link = $submission_link, isCompleted = $isCompleted, key_amount = $key_amount WHERE user_id = @id AND assignment_id = $assignment_id`,
+    USER_ASSIGNMENT_DEL: `DELETE FROM user_assignment WHERE user_id = $user_id AND assignment_id = $assignment_id`,
+    USER_ASSIGNMENT_SEL: `SELECT * FROM user_assignment WHERE user_id = $user_id AND assignment_id = $assignment_id`,
+    USER_ASSIGNMENT_SEL_ALL: `SELECT * FROM user_assignment WHERE user_id = $user_id`,
+
+    USER_TASKS_INS: `INSERT INTO user_tasks ( user_id, task_id, key_amount, startDate, endDate, status) VALUES
+    ($user_id, $task_id, $key_amount, $startDate, $endDate, $status)`,
+    USER_TASKS_UPD: `UPDATE user_tasks SET key_amount = $key_amount, startDate = $startDate, endDate = $endDate, status = $status WHERE user_id = $user_id AND task_id = $task_id`,
+    USER_TASKS_DEL: `DELETE FROM user_tasks WHERE user_id = $user_id AND task_id = $task_id`,
+    USER_TASKS_SEL: `SELECT * FROM user_tasks WHERE user_id = $user_id AND task_id = $task_id`,
+    USER_TASKS_SEL_ALL: `SELECT * FROM user_tasks WHERE user_id = $user_id`,
+
   },
   // ATTENDANCES
   {
@@ -143,6 +157,7 @@ const executeToDatabase = stmt => {
     const QueryCenter = {
       SELECT,
       SELECT_ALL,
+      SELECT_PROPS,
       INSERT,
       UPDATE,
       DELETE,

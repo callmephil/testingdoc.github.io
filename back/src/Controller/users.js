@@ -17,7 +17,7 @@ export default async (controller, isLoggedIn) => {
         }
     }
 
-    app.get('/id/:user_id', async (req, res, next) => {
+    app.get('/:user_id', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
@@ -25,9 +25,7 @@ export default async (controller, isLoggedIn) => {
     });
 
     app.get('/', async (req, res, next) => {
-        controllerCall('getAllUsers', {
-            ...req.query,
-        }, res, next)
+        controllerCall('getAllUsers', req, res, next)
     });
 
     app.post('/', async (req, res, next) => {
@@ -60,7 +58,7 @@ export default async (controller, isLoggedIn) => {
      * User Links
      * */
 
-    app.get('/links/:user_id', async (req, res, next) => {
+    app.get('/:user_id/links', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
@@ -70,24 +68,27 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     });
 
-    app.post('/links', async (req, res, next) => {
-        controllerCall('createUserLink', {
-            ...req.body,
-        }, res, next)
-    });
-
-    app.patch('/links/:user_id', async (req, res, next) => {
+    app.post('/:user_id/links', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
-
-        controllerCall('updateUserLink', {
-            user_id,
+        controllerCall('createUserLink', {
             ...req.body,
+            user_id,
         }, res, next)
     });
 
-    app.delete('/links/:user_id', async (req, res, next) => {
+    app.patch('/:user_id/links', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        controllerCall('updateUserLink', {
+            ...req.body,
+            user_id,
+        }, res, next)
+    });
+
+    app.delete('/:user_id/links', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
@@ -98,7 +99,7 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     });
 
-    app.get('/skills/:user_id', async (req, res, next) => {
+    app.get('/:user_id/skills', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
@@ -108,70 +109,76 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     })
 
-    app.get('/skills/:user_id', async (req, res, next) => {
+    app.get('/:user_id/skills', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
 
         controllerCall('getUserSkills', {
-            user_id,
             ...req.body,
+            user_id,
         }, res, next)
     })
 
-    app.post('/skills', async (req, res, next) => {
+    app.post('/:user_id/skills', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
         controllerCall('createUserSkills', {
             ...req.body,
+            user_id,
         }, res, next)
     })
 
-    app.patch('/skills/:user_id', async (req, res, next) => {
+    app.patch('/:user_id/skills', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
 
         controllerCall('updateUserSkill', {
-            user_id,
             ...req.body,
+            user_id,
         }, res, next)
     })
 
     // TODO: After MVP
-    app.get('/competencies/:user_id', async (req, res, next) => {
+    app.get('/:user_id/competencies', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
-
         controllerCall('getUserCompetencies', {
-            user_id,
             ...req.body,
+            user_id,
         }, res, next)
     })
 
     // TODO: After MVP
-    app.post('/competencies', async (req, res, next) => {
+    app.post('/:user_id/competencies', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
         controllerCall('createUserCompetencies', {
             ...req.body,
+            user_id,
         }, res, next)
     })
 
     // TODO: After MVP
-    app.patch('/competencies/:user_id', async (req, res, next) => {
+    app.patch('/:user_id/competencies', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
 
         controllerCall('updateUserCompetencies', {
-            user_id,
             ...req.body,
+            user_id,
         }, res, next)
     })
 
-    app.get('/notes/:user_id', async (req, res, next) => {
+    app.get('/:user_id/notes', async (req, res, next) => {
         const {
             user_id,
         } = req.params;
-
         controllerCall('getUserNote', {
             user_id,
         }, res, next)
@@ -180,20 +187,25 @@ export default async (controller, isLoggedIn) => {
         controllerCall('getAllUserNotes', null, res, next)
     })
 
-    app.post('/notes', async (req, res, next) => {
+    app.post('/:user_id/notes', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
         controllerCall('createUserNote', {
             ...req.body,
+            user_id,
         }, res, next)
     })
 
-    app.patch('/notes/:rowId', async (req, res, next) => {
+    app.patch('/:user_id/notes/:rowId', async (req, res, next) => {
         const {
+            user_id,
             rowId,
         } = req.params;
-
         controllerCall('updateUserNote', {
-            rowId,
             ...req.body,
+            user_id,
+            rowId,
         }, res, next)
     })
 
@@ -206,6 +218,141 @@ export default async (controller, isLoggedIn) => {
             rowId,
         }, res, next)
     })
+
+    app.post('/:user_id/attendances', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        controllerCall('createAttendance', {
+            ...req.body,
+            user_id,
+        }, res, next)
+    });
+
+    app.patch('/:user_id/attendances', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        controllerCall('updateAttendance', {
+            ...req.body,
+            user_id,
+        }, res, next)
+    });
+
+    app.patch('/:user_id/attendances/streak', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        controllerCall('updateAttendanceStreak', {
+            ...req.body,
+            user_id,
+        }, res, next)
+    });
+
+    app.post('/:user_id/task', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        controllerCall('createUserTask', {
+            ...req.body,
+            user_id,
+        }, res, next)
+    });
+
+    app.patch('/:user_id/task/:task_id', async (req, res, next) => {
+        const {
+            user_id,
+            task_id,
+        } = req.params;
+        controllerCall('updateUserTask', {
+            ...req.body,
+            user_id,
+            task_id,
+        }, res, next)
+    });
+
+    app.delete('/:user_id/task/:task_id', async (req, res, next) => {
+        const {
+            user_id,
+            task_id,
+        } = req.params;
+        controllerCall('deleteUserTask', {
+            user_id,
+            task_id,
+        }, res, next)
+    });
+
+    app.get('/:user_id/task/:task_id', async (req, res, next) => {
+        const {
+            user_id,
+            task_id,
+        } = req.params;
+        controllerCall('getUserTask', {
+            user_id,
+            task_id,
+        }, res, next)
+    });
+
+    app.get('/:user_id/task', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        controllerCall('getUserTasks', user_id, res, next)
+    });
+
+    app.post('/:user_id/assignments/:assignment_id', async (req, res, next) => {
+        const {
+            user_id,
+            assignment_id,
+        } = req.params;
+        controllerCall('createUserAssignment', {
+            ...req.body,
+            user_id,
+            assignment_id,
+        }, res, next)
+    });
+
+    app.patch('/:user_id/assignments/:assignment_id', async (req, res, next) => {
+        const {
+            user_id,
+            assignment_id,
+        } = req.params;
+        controllerCall('updateUserAssignment', {
+            ...req.body,
+            user_id,
+            assignment_id,
+        }, res, next)
+    });
+
+    app.delete('/:user_id/assignments/:assignment_id', async (req, res, next) => {
+        const {
+            user_id,
+            assignment_id,
+        } = req.params;
+        controllerCall('deleteUserAssignment', {
+            ...req.body,
+            user_id,
+            assignment_id,
+        }, res, next)
+    });
+
+    app.get('/:user_id/assignments/:assignment_id', async (req, res, next) => {
+        const {
+            user_id,
+            assignment_id,
+        } = req.params;
+        controllerCall('getUserAssignment', {
+            user_id,
+            assignment_id,
+        }, res, next)
+    });
+    app.get('/:user_id/assignments', async (req, res, next) => {
+        const {
+            user_id,
+        } = req.params;
+        controllerCall('getUserAssignments', user_id, res, next)
+    });
+
 
     return app;
 }
