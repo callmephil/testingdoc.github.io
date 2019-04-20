@@ -9,7 +9,7 @@ const initializeTasks = async stmtTable => {
       TASK_PROPERTIES_INS,
       TASK_PROPERTIES_DEL
     } = stmtTable;
-    
+
     // const getTask = (id) => {
     //     return executeToDatabase(TASK_INS).SELECT(id);
     // }

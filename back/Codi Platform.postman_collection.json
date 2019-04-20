@@ -1,1053 +1,1439 @@
 {
-  "info": {
-    "_postman_id": "cf13a370-ff7b-4eaa-af9f-d2523bae197e",
-    "name": "Codi Platform",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Users",
-      "item": [
-        {
-          "name": "USER_SEL_ALL",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "http://localhost:8080/users",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_SEL",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/id/3",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "id",
-                "3"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_INS",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "firstname",
-                  "value": "Gaby",
-                  "type": "text"
-                },
-                {
-                  "key": "lastname",
-                  "value": "Karam",
-                  "type": "text"
-                },
-                {
-                  "key": "email",
-                  "value": "gaby@codi.tech",
-                  "type": "text"
-                },
-                {
-                  "key": "phoneNumber",
-                  "value": "+96181647748",
-                  "type": "text"
-                },
-                {
-                  "key": "auth0_sub",
-                  "value": "hlkfdskbhksaydohb,cmzxaq",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_UPD",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "firstname",
-                  "value": "gaby",
-                  "type": "text"
-                },
-                {
-                  "key": "lastname",
-                  "value": "karam",
-                  "type": "text"
-                },
-                {
-                  "key": "email",
-                  "value": "info@gabykaram.com",
-                  "type": "text"
-                },
-                {
-                  "key": "phoneNumber",
-                  "value": "+96181647748",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/3",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "3"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_BAN",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "http://localhost:8080/users/ban/1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "ban",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_LINKS_SEL",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/links/1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "links",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_LINKS_UPD",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "link_type",
-                  "value": "text2222223",
-                  "type": "text"
-                },
-                {
-                  "key": "link",
-                  "value": "http://googless1212222",
-                  "type": "text"
-                },
-                {
-                  "key": "row_id",
-                  "value": "1",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/links/1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "links",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_LINKS_INS",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "user_id",
-                  "value": "1",
-                  "type": "text"
-                },
-                {
-                  "key": "link_type",
-                  "value": "text2",
-                  "type": "text"
-                },
-                {
-                  "key": "link",
-                  "value": "http://google.com",
-                  "type": "text"
-                },
-                {
-                  "key": "last_update",
-                  "value": "1555423970907",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/links",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "links"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_LINKS_DEL",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "link",
-                  "value": "http://googless1212222",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/links/1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "links",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_SKILLS_INS",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "user_id",
-                  "value": "3",
-                  "type": "text"
-                },
-                {
-                  "key": "skill_id",
-                  "value": "1",
-                  "type": "text"
-                },
-                {
-                  "key": "value",
-                  "value": "33",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/skills",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "skills"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_SKILLS_UPD",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "value",
-                  "value": "5",
-                  "type": "text"
-                },
-                {
-                  "key": "skill_id",
-                  "value": "1",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/skills/3",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "skills",
-                "3"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_COMPETENCIES_INS",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "user_id",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "competencie_id",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "value",
-                  "value": "",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/competencies",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "competencies"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_NOTES_INS",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "mentor_id",
-                  "value": "3",
-                  "type": "text"
-                },
-                {
-                  "key": "user_id",
-                  "value": "3",
-                  "type": "text"
-                },
-                {
-                  "key": "type",
-                  "value": "internal",
-                  "type": "text"
-                },
-                {
-                  "key": "activity_id",
-                  "value": "1",
-                  "type": "text"
-                },
-                {
-                  "key": "comment",
-                  "value": "Batata harra",
-                  "description": "a",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/notes",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "notes"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_NOTES_SEL",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/notes/3",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "notes",
-                "3"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_NOTES_SEL_ALL",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/notes",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "notes"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_NOTES_UPD",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "type",
-                  "value": "internal",
-                  "type": "text"
-                },
-                {
-                  "key": "activity_id",
-                  "value": "2",
-                  "type": "text"
-                },
-                {
-                  "key": "comment",
-                  "value": "sdasd asd sadasd sa",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/notes/1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "notes",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "USER_NOTES_DEL",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "rowId",
-                  "value": "1",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/users/notes/1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "users",
-                "notes",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Attendance",
-      "item": [
-        {
-          "name": "ATTENDANCE_INS",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "user_id",
-                  "value": "3",
-                  "type": "text"
-                },
-                {
-                  "key": "date",
-                  "value": "20.04.2019 02:14:06:000",
-                  "type": "text"
-                },
-                {
-                  "key": "time",
-                  "value": "20.04.2019 11:00:00:000",
-                  "type": "text"
-                },
-                {
-                  "key": "status",
-                  "value": "0",
-                  "type": "text"
-                },
-                {
-                  "key": "reason",
-                  "value": "nothing",
-                  "type": "text"
-                },
-                {
-                  "key": "key_amount",
-                  "value": "2",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/attendances",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "attendances"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "ATTENDANCE_UPD",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "time",
-                  "value": "20.04.2019 02:14:06:000",
-                  "type": "text"
-                },
-                {
-                  "key": "status",
-                  "value": "1",
-                  "type": "text"
-                },
-                {
-                  "key": "reason",
-                  "value": "not available",
-                  "type": "text"
-                },
-                {
-                  "key": "date",
-                  "value": "20.04.2019 02:14:06:000",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/attendances/3",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "attendances",
-                "3"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "ATTENDANCE_STREAK_UPD",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "streak",
-                  "value": "3",
-                  "type": "text"
-                },
-                {
-                  "key": "max_streak",
-                  "value": "5",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/attendances/streak/3",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "attendances",
-                "streak",
-                "3"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Assignment",
-      "item": [
-        {
-          "name": "ASSIGNMENT_SEL",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "http://localhost:8080/assignments/2",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "assignments",
-                "2"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "ASSIGNMENT_INS",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "mentor_id",
-                  "value": "3",
-                  "type": "text"
-                },
-                {
-                  "key": "task_id",
-                  "value": "1",
-                  "type": "text"
-                },
-                {
-                  "key": "link",
-                  "value": "http://google.com",
-                  "type": "text"
-                },
-                {
-                  "key": "message",
-                  "value": "Hello world message",
-                  "type": "text"
-                },
-                {
-                  "key": "startDate",
-                  "value": "25.04.2019 03:46:52:000",
-                  "type": "text"
-                },
-                {
-                  "key": "endDate",
-                  "value": "30.04.2019 03:46:52:000",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/assignments",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "assignments"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "ASSIGNMENT_UPD",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "type": "text",
-                "value": "application/x-www-form-urlencoded"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "task_id",
-                  "value": "1",
-                  "type": "text"
-                },
-                {
-                  "key": "link",
-                  "value": "http://google.com/help",
-                  "type": "text"
-                },
-                {
-                  "key": "message",
-                  "value": "Hello world messages",
-                  "type": "text"
-                },
-                {
-                  "key": "startDate",
-                  "value": "25.04.2019 03:46:52:000",
-                  "type": "text"
-                },
-                {
-                  "key": "endDate",
-                  "value": "27.04.2019 03:46:52:000",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "http://localhost:8080/assignments/2",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "assignments",
-                "2"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "ASSIGNMENT_SEL_ALL",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "http://localhost:8080/assignments/list/30.05.2019 03:46:52:000",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "assignments",
-                "list",
-                "30.05.2019 03:46:52:000"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "ASSIGNMENT_DEL",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "http://localhost:8080/assignments/2",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "assignments",
-                "2"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    }
-  ]
+	"info": {
+		"_postman_id": "cf13a370-ff7b-4eaa-af9f-d2523bae197e",
+		"name": "Codi Platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "USER_SEL_ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_SEL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/id/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"id",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "Gaby",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "Karam",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "gaby@codi.tech",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+96181647748",
+									"type": "text"
+								},
+								{
+									"key": "auth0_sub",
+									"value": "hlkfdskbhksaydohb,cmzxaq",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_UPD",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstname",
+									"value": "gaby",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "karam",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "info@gabykaram.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+96181647748",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_BAN",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/users/ban/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"ban",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_LINKS_SEL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/links/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"links",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_LINKS_UPD",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "link_type",
+									"value": "text2222223",
+									"type": "text"
+								},
+								{
+									"key": "link",
+									"value": "http://googless1212222",
+									"type": "text"
+								},
+								{
+									"key": "row_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/links/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"links",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_LINKS_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "link_type",
+									"value": "text2",
+									"type": "text"
+								},
+								{
+									"key": "link",
+									"value": "http://google.com",
+									"type": "text"
+								},
+								{
+									"key": "last_update",
+									"value": "1555423970907",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/links",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"links"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_LINKS_DEL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "link",
+									"value": "http://googless1212222",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/links/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"links",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_SKILLS_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "skill_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "33",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/skills",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"skills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_SKILLS_UPD",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "value",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "skill_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/skills/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"skills",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_COMPETENCIES_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "competencie_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/competencies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"competencies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_NOTES_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "mentor_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "internal",
+									"type": "text"
+								},
+								{
+									"key": "activity_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Batata harra",
+									"description": "a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_NOTES_SEL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/notes/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"notes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_NOTES_SEL_ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_NOTES_UPD",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "internal",
+									"type": "text"
+								},
+								{
+									"key": "activity_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "sdasd asd sadasd sa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/notes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_NOTES_DEL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "rowId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/notes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attendance",
+			"item": [
+				{
+					"name": "ATTENDANCE_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "20.04.2019 02:14:06:000",
+									"type": "text"
+								},
+								{
+									"key": "time",
+									"value": "20.04.2019 11:00:00:000",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "nothing",
+									"type": "text"
+								},
+								{
+									"key": "key_amount",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/attendances",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"attendances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ATTENDANCE_UPD",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "time",
+									"value": "20.04.2019 02:14:06:000",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "not available",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "20.04.2019 02:14:06:000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/attendances/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"attendances",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ATTENDANCE_STREAK_UPD",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "streak",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "max_streak",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/attendances/streak/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"attendances",
+								"streak",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignment",
+			"item": [
+				{
+					"name": "ASSIGNMENT_SEL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/assignments/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ASSIGNMENT_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "mentor_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "task_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "link",
+									"value": "http://google.com",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Hello world message",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "25.04.2019 03:46:52:000",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "30.04.2019 03:46:52:000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/assignments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ASSIGNMENT_UPD",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "task_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "link",
+									"value": "http://google.com/help",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Hello world messages",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "25.04.2019 03:46:52:000",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "27.04.2019 03:46:52:000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/assignments/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ASSIGNMENT_SEL_ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/assignments/list/30.05.2019 03:46:52:000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignments",
+								"list",
+								"30.05.2019 03:46:52:000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ASSIGNMENT_DEL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/assignments/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "GROUP_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "group_type",
+									"value": "research",
+									"type": "text"
+								},
+								{
+									"key": "group_name",
+									"value": "Hakouna matata",
+									"type": "text"
+								},
+								{
+									"key": "project_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GROUP_MEMBER_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "group_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/groups/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"groups",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GROUP_MEMBER_DEL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "group_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/groups/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"groups",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GROUP_DISABLE",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "group_type",
+									"value": "research",
+									"type": "text"
+								},
+								{
+									"key": "group_name",
+									"value": "Hakouna matata",
+									"type": "text"
+								},
+								{
+									"key": "project_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/groups/disable/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"groups",
+								"disable",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "TASK_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "link",
+									"value": "http://google.com",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "task",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Hello world",
+									"type": "text"
+								},
+								{
+									"key": "key_range",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "isRepeatable",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TASK_DEL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "link",
+									"value": "http://google.com",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "task",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Hello world",
+									"type": "text"
+								},
+								{
+									"key": "key_range",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "isRepeatable",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/tasks/delete/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TASK_PROPERTIES_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "task_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/tasks/properties",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks",
+								"properties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TASK_PROPERTIES_DEL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "task_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "skill_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/tasks/properties",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tasks",
+								"properties"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
 }

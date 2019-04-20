@@ -51,7 +51,7 @@ const queryList = [
   {
     GROUP_INS: `INSERT INTO groups (group_type, group_name, project_id) VALUES
       ($group_type, $group_name, $project_id)`,
-    GROUP_DISABLE: `UPDATE groups SET disabled = 1 WHERE group_id = ?`,
+    GROUP_DISABLE: `UPDATE groups SET disabled = 1 WHERE group_id = @id`,
     GROUP_MEMBER_INS: `INSERT INTO group_members (group_id, user_id) VALUES ($group_id, $user_id)`,
     GROUP_MEMBER_DEL: `DELETE FROM group_members WHERE group_id = $group_id AND user_id = $user_id`,
   },

@@ -1,8 +1,10 @@
 import Database from 'better-sqlite3';
-import { prepareStmt } from './Controller/PreparedStatement';
+import {prepareStmt} from './Controller/PreparedStatement';
 import Users from './Controller/Users';
 import Attendances from './Controller/Attendances';
 import Assignments from './Controller/Assignments';
+import Groups from './Controller/Groups';
+import Task from './Controller/Tasks';
 
 let Connection;
 const openConnection = () => {
@@ -21,17 +23,21 @@ const getConnection = async () => {
         if (!Connection)
             Connection = openConnection();
         else
-            console.log("Connection Already Openeded, No need to re-open");
+            console.log('Connection Already Openeded, No need to re-open');
 
         const stmtData = await prepareStmt(Connection);
         const usersController = await Users(stmtData);
         const attendancesController = await Attendances(stmtData);
         const assignmentsController = await Assignments(stmtData);
+        const groupsController = await Groups(stmtData);
+        const tasksController = await Task(stmtData);
 
         const controllers = {
             usersController,
             attendancesController,
-            assignmentsController
+            assignmentsController,
+            groupsController,
+            tasksController,
         }
 
         return controllers;

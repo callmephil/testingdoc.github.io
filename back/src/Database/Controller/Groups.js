@@ -3,10 +3,10 @@ import Utils from '../Utils.js';
 
 const initializeGroups = async (stmtTable) => {
     try {
-        const { GROUP_INS, GROUP_DISABLE, GROUP_MEMBER_INS, GROUP_MEMBER_DEL, GROUP_MEMBER_SEL } = stmtTable;
+        const {GROUP_INS, GROUP_DISABLE, GROUP_MEMBER_INS, GROUP_MEMBER_DEL, GROUP_MEMBER_SEL} = stmtTable;
 
-        const createGroup = (id) => {
-            return executeToDatabase(GROUP_INS).INSERT(id);
+        const createGroup = (props) => {
+            return executeToDatabase(GROUP_INS).INSERT(props);
         }
 
         const disableGroup = (id) => {
@@ -37,13 +37,13 @@ const initializeGroups = async (stmtTable) => {
             createGroup,
             disableGroup,
             addGroupMember,
-            removeGroupMember
+            removeGroupMember,
         }
-        
+
         return controller;
     } catch (e) {
-    console.log(`initializeGroups ${e}`)
-}
+        console.log(`initializeGroups ${e}`)
+    }
 }
 
 
