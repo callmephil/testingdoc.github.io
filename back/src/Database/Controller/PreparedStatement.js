@@ -34,7 +34,7 @@ const queryList = [
   {
     ATTENDANCE_INS: `INSERT INTO user_attendances (user_id, date, time, status, reason, key_amount) VALUES
       ($user_id, $date, $time, $status, $reason, $key_amount)`,
-    ATTENDANCE_UPD: `UPDATE user_attendances SET time = $time, status = $status, reason = $reason WHERE user_id = @id and date = ?`,
+    ATTENDANCE_UPD: `UPDATE user_attendances SET time = $time, status = $status, reason = $reason WHERE user_id = @id and date = $date`,
     ATTENDANCE_STREAK_UPD: `UPDATE user_attendance_streak SET streak = $streak, max_streak = $max_streak WHERE user_id = @id`,
   },
   // ASSIGNMENTS
@@ -104,18 +104,16 @@ const executeToDatabase = stmt => {
   try {
     // this is shit. change this thanks.
     const SELECT = id => {
-      console.log(' id => id', id);
       return id ? stmt.get(id) : stmt.get();
     };
 
     const SELECT_ALL = id => {
-      console.log(' id => ', id)
       return id ? stmt.all(id) : stmt.all();
     };
 
     const SELECT_PROPS = (props, all) => {
       return all ? stmt.all({...props}) : stmt.get({props})
-    } 
+    }
 
     const INSERT = props => {
       const result = stmt.run({

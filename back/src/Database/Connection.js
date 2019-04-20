@@ -1,6 +1,8 @@
 import Database from 'better-sqlite3';
 import { prepareStmt } from './Controller/PreparedStatement';
 import Users from './Controller/Users';
+import Attendances from './Controller/Attendances';
+import Assignments from './Controller/Assignments';
 
 let Connection;
 const openConnection = () => {
@@ -22,12 +24,16 @@ const getConnection = async () => {
             console.log("Connection Already Openeded, No need to re-open");
 
         const stmtData = await prepareStmt(Connection);
-        const usersController = await Users(stmtData); 
+        const usersController = await Users(stmtData);
+        const attendancesController = await Attendances(stmtData);
+        const assignmentsController = await Assignments(stmtData);
 
         const controllers = {
             usersController,
+            attendancesController,
+            assignmentsController
         }
-        
+
         return controllers;
     } catch (e) {
         console.log(`Failed to get database connection : ${e}`)

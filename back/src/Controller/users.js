@@ -8,13 +8,11 @@ export default async (controller, isLoggedIn) => {
     const controllerCall = async (method, props, res, next) => {
         try {
             const result = await controller[method](props);
-            console.log('result => ', result);
             res.json({
                 success: true,
                 result,
             });
         } catch (e) {
-            console.log('result => 2', e);
             next(e);
         }
     }
