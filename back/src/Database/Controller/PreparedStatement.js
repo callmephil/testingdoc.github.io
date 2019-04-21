@@ -25,7 +25,7 @@ const queryList = [
     USER_NOTES_INS:`INSERT INTO user_notes (mentor_id, user_id, type, activity_id, comment) VALUES
     ($mentor_id, $user_id, $type, $activity_id, $comment)`,
     USER_NOTES_UPD:`UPDATE user_notes SET type = $type, activity_id = $activity_id, comment = $comment WHERE rowId = @id` ,
-    USER_NOTES_DEL:`DELETE FROM user_notes WHERE rowId = @id`,
+    USER_NOTES_DEL:`DELETE FROM user_notes WHERE user_id = $user_id AND rowId = @id`,
     USER_NOTES_SEL:`SELECT * FROM user_notes WHERE user_id = ?`,
     USER_NOTES_SEL_ALL:`SELECT * FROM user_notes`,
 
@@ -34,14 +34,14 @@ const queryList = [
     USER_ASSIGNMENT_UPD: `UPDATE user_assignment SET submission_link = $submission_link, isCompleted = $isCompleted, key_amount = $key_amount WHERE user_id = @id AND assignment_id = $assignment_id`,
     USER_ASSIGNMENT_DEL: `DELETE FROM user_assignment WHERE user_id = $user_id AND assignment_id = $assignment_id`,
     USER_ASSIGNMENT_SEL: `SELECT * FROM user_assignment WHERE user_id = $user_id AND assignment_id = $assignment_id`,
-    USER_ASSIGNMENT_SEL_ALL: `SELECT * FROM user_assignment WHERE user_id = $user_id`,
+    USER_ASSIGNMENT_SEL_ALL: `SELECT * FROM user_assignment WHERE user_id =  ?`,
 
     USER_TASKS_INS: `INSERT INTO user_tasks ( user_id, task_id, key_amount, startDate, endDate, status) VALUES
     ($user_id, $task_id, $key_amount, $startDate, $endDate, $status)`,
     USER_TASKS_UPD: `UPDATE user_tasks SET key_amount = $key_amount, startDate = $startDate, endDate = $endDate, status = $status WHERE user_id = $user_id AND task_id = $task_id`,
     USER_TASKS_DEL: `DELETE FROM user_tasks WHERE user_id = $user_id AND task_id = $task_id`,
     USER_TASKS_SEL: `SELECT * FROM user_tasks WHERE user_id = $user_id AND task_id = $task_id`,
-    USER_TASKS_SEL_ALL: `SELECT * FROM user_tasks WHERE user_id = $user_id`,
+    USER_TASKS_SEL_ALL: `SELECT * FROM user_tasks WHERE user_id = ?`,
 
   },
   // ATTENDANCES
@@ -126,7 +126,7 @@ const executeToDatabase = stmt => {
     };
 
     const SELECT_PROPS = (props, all) => {
-      return all ? stmt.all({...props}) : stmt.get({props})
+      return all ? stmt.all({...props}) : stmt.get({...props})
     }
 
     const INSERT = props => {
@@ -138,6 +138,7 @@ const executeToDatabase = stmt => {
 
     const UPDATE = (id, props) => {
       props.id = id;
+      console.log(props);
       const result = stmt.run({
         ...props,
       });

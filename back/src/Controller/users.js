@@ -63,7 +63,7 @@ export default async (controller, isLoggedIn) => {
             user_id,
         } = req.params;
 
-        controllerCall('getUserLink', {
+        controllerCall('getUserLinks', {
             user_id,
         }, res, next)
     });
@@ -78,13 +78,15 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     });
 
-    app.patch('/:user_id/links', async (req, res, next) => {
+    app.patch('/:user_id/links/:rowId', async (req, res, next) => {
         const {
             user_id,
+            rowId,
         } = req.params;
         controllerCall('updateUserLink', {
             ...req.body,
             user_id,
+            rowId,
         }, res, next)
     });
 
@@ -130,14 +132,16 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     })
 
-    app.patch('/:user_id/skills', async (req, res, next) => {
+    app.patch('/:user_id/skills/:skill_id', async (req, res, next) => {
         const {
             user_id,
+            skill_id,
         } = req.params;
 
         controllerCall('updateUserSkill', {
             ...req.body,
             user_id,
+            skill_id,
         }, res, next)
     })
 
@@ -183,7 +187,9 @@ export default async (controller, isLoggedIn) => {
             user_id,
         }, res, next)
     })
-    app.get('/notes', async (req, res, next) => {
+    // TODO: /users/notes/all should be /notes to follow the REST way
+    //  as it return all the notes and not the one specific to one user
+    app.get('/notes/all', async (req, res, next) => {
         controllerCall('getAllUserNotes', null, res, next)
     })
 
@@ -209,13 +215,14 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     })
 
-    app.delete('/notes/:rowId', async (req, res, next) => {
+    app.delete('/:user_id/notes/:rowId', async (req, res, next) => {
         const {
             rowId,
+            user_id,
         } = req.params;
-
         controllerCall('deleteUserNote', {
             rowId,
+            user_id,
         }, res, next)
     })
 
@@ -249,17 +256,19 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     });
 
-    app.post('/:user_id/task', async (req, res, next) => {
+    app.post('/:user_id/tasks/:task_id', async (req, res, next) => {
         const {
             user_id,
+            task_id,
         } = req.params;
         controllerCall('createUserTask', {
             ...req.body,
             user_id,
+            task_id,
         }, res, next)
     });
 
-    app.patch('/:user_id/task/:task_id', async (req, res, next) => {
+    app.patch('/:user_id/tasks/:task_id', async (req, res, next) => {
         const {
             user_id,
             task_id,
@@ -271,7 +280,7 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     });
 
-    app.delete('/:user_id/task/:task_id', async (req, res, next) => {
+    app.delete('/:user_id/tasks/:task_id', async (req, res, next) => {
         const {
             user_id,
             task_id,
@@ -282,7 +291,7 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     });
 
-    app.get('/:user_id/task/:task_id', async (req, res, next) => {
+    app.get('/:user_id/tasks/:task_id', async (req, res, next) => {
         const {
             user_id,
             task_id,
@@ -293,7 +302,7 @@ export default async (controller, isLoggedIn) => {
         }, res, next)
     });
 
-    app.get('/:user_id/task', async (req, res, next) => {
+    app.get('/:user_id/tasks', async (req, res, next) => {
         const {
             user_id,
         } = req.params;

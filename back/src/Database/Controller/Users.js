@@ -31,16 +31,16 @@ const initializeUsers = async (stmtTable) => {
             return executeToDatabase(USER_BAN).UPDATE(user_id, {});
         }
 
-        const getUserLink = ({user_id}) => {
-            return executeToDatabase(USER_LINKS_SEL).SELECT(user_id);
+        const getUserLinks = ({user_id}) => {
+            return executeToDatabase(USER_LINKS_SEL).SELECT_ALL(user_id);
         }
 
         const createUserLink = (props) => {
             return executeToDatabase(USER_LINKS_INS).INSERT(props);
         }
 
-        const updateUserLink = ({row_id, ...props}) => {
-            return executeToDatabase(USER_LINKS_UPD).UPDATE(row_id, props);
+        const updateUserLink = ({rowId, ...props}) => {
+            return executeToDatabase(USER_LINKS_UPD).UPDATE(rowId, props);
         }
 
         const deleteUserLink = (props) => {
@@ -74,7 +74,7 @@ const initializeUsers = async (stmtTable) => {
         }
 
         const getUserNote = ({user_id}) => {
-            return executeToDatabase(USER_NOTES_SEL).SELECT(user_id);
+            return executeToDatabase(USER_NOTES_SEL).SELECT_ALL(user_id);
         }
 
         const getAllUserNotes = () => {
@@ -156,7 +156,7 @@ const initializeUsers = async (stmtTable) => {
             createUser,
             updateUser,
             banUser,
-            getUserLink,
+            getUserLinks,
             updateUserLink,
             createUserLink,
             deleteUserLink,

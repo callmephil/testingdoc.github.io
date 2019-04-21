@@ -41,7 +41,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/id/3",
+							"raw": "http://localhost:8080/users/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -49,7 +49,6 @@
 							"port": "8080",
 							"path": [
 								"users",
-								"id",
 								"3"
 							]
 						}
@@ -83,7 +82,7 @@
 								},
 								{
 									"key": "email",
-									"value": "gaby@codi.tech",
+									"value": "gaby@codi.techs",
 									"type": "text"
 								},
 								{
@@ -93,7 +92,7 @@
 								},
 								{
 									"key": "auth0_sub",
-									"value": "hlkfdskbhksaydohb,cmzxaq",
+									"value": "hlkfdskbhksaydohb,cmzxaqs",
 									"type": "text"
 								}
 							]
@@ -178,7 +177,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:8080/users/ban/1",
+							"raw": "http://localhost:8080/users/ban/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -187,7 +186,7 @@
 							"path": [
 								"users",
 								"ban",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -203,7 +202,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/links/1",
+							"raw": "http://localhost:8080/users/3/links",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -211,8 +210,8 @@
 							"port": "8080",
 							"path": [
 								"users",
-								"links",
-								"1"
+								"3",
+								"links"
 							]
 						}
 					},
@@ -235,23 +234,19 @@
 							"urlencoded": [
 								{
 									"key": "link_type",
-									"value": "text2222223",
-									"type": "text"
+									"value": "text2222223s",
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "link",
-									"value": "http://googless1212222",
-									"type": "text"
-								},
-								{
-									"key": "row_id",
-									"value": "1",
+									"value": "http://google.com",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/links/1",
+							"raw": "http://localhost:8080/users/3/links/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -259,6 +254,7 @@
 							"port": "8080",
 							"path": [
 								"users",
+								"3",
 								"links",
 								"1"
 							]
@@ -282,18 +278,13 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "user_id",
-									"value": "1",
-									"type": "text"
-								},
-								{
 									"key": "link_type",
 									"value": "text2",
 									"type": "text"
 								},
 								{
 									"key": "link",
-									"value": "http://google.com",
+									"value": "http://google.coms",
 									"type": "text"
 								},
 								{
@@ -304,7 +295,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/links",
+							"raw": "http://localhost:8080/users/3/links",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -312,6 +303,7 @@
 							"port": "8080",
 							"path": [
 								"users",
+								"3",
 								"links"
 							]
 						}
@@ -335,13 +327,13 @@
 							"urlencoded": [
 								{
 									"key": "link",
-									"value": "http://googless1212222",
+									"value": "http://googless1212222s",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/links/1",
+							"raw": "http://localhost:8080/users/3/links",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -349,8 +341,8 @@
 							"port": "8080",
 							"path": [
 								"users",
-								"links",
-								"1"
+								"3",
+								"links"
 							]
 						}
 					},
@@ -372,11 +364,6 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "user_id",
-									"value": "3",
-									"type": "text"
-								},
-								{
 									"key": "skill_id",
 									"value": "1",
 									"type": "text"
@@ -389,7 +376,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/skills",
+							"raw": "http://localhost:8080/users/3/skills",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -397,6 +384,7 @@
 							"port": "8080",
 							"path": [
 								"users",
+								"3",
 								"skills"
 							]
 						}
@@ -420,18 +408,13 @@
 							"urlencoded": [
 								{
 									"key": "value",
-									"value": "5",
-									"type": "text"
-								},
-								{
-									"key": "skill_id",
-									"value": "1",
+									"value": "51",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/skills/3",
+							"raw": "http://localhost:8080/users/3/skills/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -439,8 +422,34 @@
 							"port": "8080",
 							"path": [
 								"users",
+								"3",
 								"skills",
-								"3"
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_SKILLS_SEL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/3/skills",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"skills"
 							]
 						}
 					},
@@ -514,11 +523,6 @@
 									"type": "text"
 								},
 								{
-									"key": "user_id",
-									"value": "3",
-									"type": "text"
-								},
-								{
 									"key": "type",
 									"value": "internal",
 									"type": "text"
@@ -537,7 +541,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/notes",
+							"raw": "http://localhost:8080/users/3/notes",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -545,6 +549,7 @@
 							"port": "8080",
 							"path": [
 								"users",
+								"3",
 								"notes"
 							]
 						}
@@ -561,7 +566,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/notes/3",
+							"raw": "http://localhost:8080/users/notes/all",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -570,7 +575,7 @@
 							"path": [
 								"users",
 								"notes",
-								"3"
+								"all"
 							]
 						}
 					},
@@ -633,7 +638,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/notes/1",
+							"raw": "http://localhost:8080/users/3/notes/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -641,8 +646,9 @@
 							"port": "8080",
 							"path": [
 								"users",
+								"3",
 								"notes",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -671,7 +677,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/notes/1",
+							"raw": "http://localhost:8080/users/3/notes/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -679,8 +685,391 @@
 							"port": "8080",
 							"path": [
 								"users",
+								"3",
 								"notes",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_TASKS_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "key_amount",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "20.04.2019 02:14:06:000",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "25.04.2019 02:14:06:000",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/3/tasks/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"tasks",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_TASKS_UPD",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "key_amount",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "20.04.2019 02:14:06:000",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "25.04.2019 02:14:06:000",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/3/tasks/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"tasks",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_TASKS_DEL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/users/3/tasks/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"tasks",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_TASKS_SEL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/3/tasks/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"tasks",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_TASKS_SEL_ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/3/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_ASSIGNMENT_INS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "submission_link",
+									"value": "http://google.com",
+									"type": "text"
+								},
+								{
+									"key": "isCompleted",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "key_amount",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/3/assignments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"assignments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_ASSIGNMENT_UPD",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "submission_link",
+									"value": "http://google.com",
+									"type": "text"
+								},
+								{
+									"key": "isCompleted",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "key_amount",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/3/assignments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"assignments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_ASSIGNMENT_DEL",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/users/3/assignments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"assignments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_ASSIGNMENT_SEL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/users/3/assignments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"assignments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER_ASSIGNMENT_SEL_ALL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/users/3/assignments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"assignments"
 							]
 						}
 					},
@@ -706,11 +1095,6 @@
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
-								{
-									"key": "user_id",
-									"value": "3",
-									"type": "text"
-								},
 								{
 									"key": "date",
 									"value": "20.04.2019 02:14:06:000",
@@ -739,13 +1123,15 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/attendances",
+							"raw": "http://localhost:8080/users/3/attendances",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"users",
+								"3",
 								"attendances"
 							]
 						}
@@ -774,7 +1160,7 @@
 								},
 								{
 									"key": "status",
-									"value": "1",
+									"value": "2",
 									"type": "text"
 								},
 								{
@@ -790,15 +1176,16 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/attendances/3",
+							"raw": "http://localhost:8080/users/3/attendances",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"attendances",
-								"3"
+								"users",
+								"3",
+								"attendances"
 							]
 						}
 					},
@@ -826,22 +1213,24 @@
 								},
 								{
 									"key": "max_streak",
-									"value": "5",
+									"value": "10",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/attendances/streak/3",
+							"raw": "http://localhost:8080/users/3/attendances/streak/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"users",
+								"3",
 								"attendances",
 								"streak",
-								"3"
+								""
 							]
 						}
 					},
