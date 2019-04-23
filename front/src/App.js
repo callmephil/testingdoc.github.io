@@ -25,6 +25,8 @@ import {AccountInterface} from './pages/AccountInterface';
 import {DashboardMentor} from './pages/MentorInterface';
 import {Dashboard} from './pages/UserInterface';
 
+// Temp
+import  Studentsprofile  from './pages/Studentsprofile';
 
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -33,7 +35,6 @@ import 'primeflex/primeflex.css';
 import 'fullcalendar/dist/fullcalendar.css';
 import './layout/layout.css';
 import './App.css';
-import Studentprofile from './pages/Studentprofile';
 
 class App extends Component {
 
@@ -203,7 +204,8 @@ class App extends Component {
                     <Route path="/misc" component={MiscDemo} />
                     <Route path="/empty" component={EmptyPage} />
                     <Route path="/documentation" component={Documentation} />
-                    <Route path="/studentprofile" component={Studentprofile} />
+                    <Route path="/stp" component={Studentsprofile} />
+
 
                 </div>
 

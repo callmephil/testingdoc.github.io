@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Panel} from 'primereact/panel';
+import {Link} from 'react-router-dom';
 
 
 
@@ -10,7 +11,8 @@ const Studentslistcard = () => {
         <div className="p-col-12 p-lg-4 contacts">
           <Panel header="Students list">
             <ul>
-              <li>
+               <li><Link to="/stp">
+
                 <button className="p-link" >
                   <img
                     src="assets/layout/images/avatar_1.png"
@@ -19,8 +21,9 @@ const Studentslistcard = () => {
                   />
                   <span className="name">Claire Williams</span>
                 </button>
+                </Link>
               </li>
-              <li>
+              <li><Link to="/stp">
                 <button className="p-link">
                   <img
                     src="assets/layout/images/avatar_2.png"
@@ -29,8 +32,9 @@ const Studentslistcard = () => {
                   />
                   <span className="name">Jason Dourne</span>
                 </button>
+                </Link>
               </li>
-              <li>
+              <li><Link to="/stp">
                 <button className="p-link">
                   <img
                     src="assets/layout/images/avatar_3.png"
@@ -39,8 +43,9 @@ const Studentslistcard = () => {
                   />
                   <span className="name">Jane Davidson</span>
                 </button>
+                </Link>
               </li>
-              <li>
+              <li><Link to="/stp">
                 <button className="p-link">
                   <img
                     src="assets/layout/images/avatar_4.png"
@@ -49,8 +54,9 @@ const Studentslistcard = () => {
                   />
                   <span className="name">Tony Corleone</span>
                 </button>
+                </Link>
               </li>
-              <li>
+              <li><Link to="/stp">
                 <button className="p-link">
                   <img
                     src="assets/layout/images/avatar_4.png"
@@ -59,8 +65,9 @@ const Studentslistcard = () => {
                   />
                   <span className="name">Tony Corleone</span>
                 </button>
+                </Link>
               </li>
-              <li>
+              <li><Link to="/stp">
                 <button className="p-link">
                   <img
                     src="assets/layout/images/avatar_4.png"
@@ -69,8 +76,9 @@ const Studentslistcard = () => {
                   />
                   <span className="name">Tony Corleone</span>
                 </button>
+                </Link>
               </li>
-              <li>
+              <li><Link to="/stp">
                 <button className="p-link">
                   <img
                     src="assets/layout/images/avatar_4.png"
@@ -79,6 +87,7 @@ const Studentslistcard = () => {
                   />
                   <span className="name">Tony Corleone</span>
                 </button>
+                </Link>
               </li>
 
             </ul>
@@ -100,7 +109,6 @@ export class StudentPanel extends Component {
                     <div className="card">
                         <h1>Student Panel</h1>
                         <p>Use this page to start from scratch and place your custom content.</p>
-
                         <div className="p-grid p-fluid dashboard">
                             <Studentslistcard></Studentslistcard>
                         </div>

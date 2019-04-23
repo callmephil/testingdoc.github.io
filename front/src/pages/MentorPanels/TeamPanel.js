@@ -38,7 +38,7 @@ render(){
                 </button>
                 </Link>
               </li>
-              <li>
+              <li><Link to="/stp">
                 <button className="p-link">
                   <img
                     src="assets/layout/images/avatar_2.png"
@@ -47,8 +47,9 @@ render(){
                   />
                   <span className="name">Jason Dourne</span>
                 </button>
+                </Link>
               </li>
-              <li>
+              <li><Link to="/stp">
                 <button className="p-link">
                   <img
                     src="assets/layout/images/avatar_3.png"
@@ -57,8 +58,9 @@ render(){
                   />
                   <span className="name">Jane Davidson</span>
                 </button>
+                </Link>
               </li>
-              <li>
+              <li><Link to="/stp">
                 <button className="p-link">
                   <img
                     src="assets/layout/images/avatar_4.png"
@@ -67,6 +69,7 @@ render(){
                   />
                   <span className="name">Tony Corleone</span>
                 </button>
+                </Link>
               </li>
             </ul>
             <div className="p-col-12 p-lg-6">
