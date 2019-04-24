@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Button} from 'primereact/button';
 import {PickList} from 'primereact/picklist';
-import {ToggleButton} from 'primereact/togglebutton';
 import {Panel} from 'primereact/panel';
 import {Toolbar} from 'primereact/toolbar';
 import {InputSwitch} from 'primereact/inputswitch';

@@ -125,6 +125,9 @@ export default class Studentsprofile extends Component {
 
                               <SkillMap Data = {this.state.radarData} />
                               <KeyCard /> 
+                              
+                              
+                          <h1>Mentors Comments</h1>
                           <div className="p-col-12">
                           <div className="card">
                           <div className="p-grid p-fluid dashboard">

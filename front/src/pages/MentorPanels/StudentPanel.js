@@ -78,15 +78,16 @@ const Studentslistcard = () => {
                 </button>
                 </Link>
               </li>
-              <li><Link to="/stp">
-                <button className="p-link">
-                  <img
-                    src="assets/layout/images/avatar_4.png"
-                    width="35"
-                    alt="avatar4"
-                  />
-                  <span className="name">Tony Corleone</span>
-                </button>
+              <li>
+                <Link to="/stp">
+                    <button className="p-link">
+                      <img
+                        src="assets/layout/images/avatar_4.png"
+                        width="35"
+                        alt="avatar4"
+                      />
+                      <span className="name">Tony Corleone</span>
+                    </button>
                 </Link>
               </li>
 
