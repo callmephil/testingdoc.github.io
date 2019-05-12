@@ -20,8 +20,10 @@ import {EmptyPage} from './components/Examples/EmptyPage';
 import {Documentation} from "./components/Examples/Documentation";
 import {ScrollPanel} from 'primereact/components/scrollpanel/ScrollPanel';
 
-/* ==== Pages ==== */ 
+/* ==== Pages ==== */
 import {AccountInterface} from './pages/AccountInterface';
+import DiscordCallback from './pages/Callback';
+import LoginPage from './pages/Login';
 import {DashboardMentor} from './pages/MentorInterface';
 import {Dashboard} from './pages/UserInterface';
 
@@ -87,7 +89,7 @@ class App extends Component {
                 mobileMenuActive: !mobileMenuActive
             });
         }
-       
+
         event.preventDefault();
     }
 
@@ -205,7 +207,8 @@ class App extends Component {
                     <Route path="/empty" component={EmptyPage} />
                     <Route path="/documentation" component={Documentation} />
                     <Route path="/stp" component={Studentsprofile} />
-
+                    <Route path='/login' component={LoginPage} />
+                    <Route path={'/discord/callback'} component={DiscordCallback} />
 
                 </div>
 

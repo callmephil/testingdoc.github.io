@@ -1,0 +1,21 @@
+.login-wrapper {
+  text-align: center;
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: " 1 " " center " " 2 ";
+
+}
+.login-wrapper:before {
+  grid-area: 1;
+}
+.login-wrapper:after {
+  grid-area: 2;
+}
+.login-wrapper .btn-login {
+  grid-area: center;
+  height: 100px;
+  width: 300px;
+  margin: auto;
+}

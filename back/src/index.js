@@ -6,6 +6,7 @@ import usersControllerApp from './Controller/users'
 import assignmentsControllerApp from './Controller/assignments'
 import groupsControllerApp from './Controller/groups'
 import tasksControllerApp from './Controller/task'
+import discordControllerApp from './Controller/discord';
 /* Middleware */
 import upload from './Middleware/uploads'
 
@@ -18,6 +19,7 @@ const start = async () => {
     const {usersController, assignmentsController, groupsController, tasksController} = DatabaseControllers;
     app.get('/', (req, res, next) => res.send('ok'));
 
+    app.use('/discord', discordControllerApp);
     // /* ROUTING DATA'S  */
     const users = await usersControllerApp(usersController, isLoggedIn, upload);
     app.use('/users', users);

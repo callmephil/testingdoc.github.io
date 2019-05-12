@@ -6,6 +6,7 @@ const queryList = [
     USER_UPD: `UPDATE user_account SET firstname = $firstname, lastname = $lastname, email = $email, phoneNumber = $phoneNumber WHERE user_id = @id`,
     USER_BAN: `UPDATE user_account SET disabled = 1 WHERE user_id = @id`,
     USER_SEL: `SELECT * FROM user_account WHERE user_id = ?`,
+    USER_SELL_EMAIL: `SELECT * FROM user_account WHERE email = ?`,
     USER_SEL_ALL: `SELECT * FROM user_account`,
 
     USER_LINKS_INS: `INSERT INTO user_links (user_id, link_type, link, last_update) VALUES (
