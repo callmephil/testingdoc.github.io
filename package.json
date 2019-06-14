@@ -23,6 +23,7 @@
   "homepage": "https://github.com/callmephil/Codi_Doc.git#readme",
   "dependencies": {
     "concurrently": "^4.1.0",
+    "morgan": "^1.9.1",
     "react": "^16.7.0"
   }
 }

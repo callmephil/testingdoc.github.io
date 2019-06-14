@@ -5,7 +5,8 @@ CREATE TABLE user_account (
 	lastname text NOT NULL,
 	email text UNIQUE,
 	phoneNumber text,
-	auth0_sub text UNIQUE,
+	discordId text UNIQUE,
+	refresh_token text UNIQUE,
 	security_level integer DEFAULT 0,
 	disabled integer DEFAULT 0
 );
@@ -16,8 +17,8 @@ CREATE TABLE user_links (
 	link_type text NOT NULL,
 	link text UNIQUE,
 	last_update datetime,
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
 );
 
 DROP TABLE IF EXISTS user_notes;
@@ -27,10 +28,10 @@ CREATE TABLE user_notes (
 	type text NOT NULL DEFAULT 'internal',
 	activity_id integer DEFAULT -1,
 	comment text NOT NULL DEFAULT '',
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
-	FOREIGN KEY(mentor_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
+	FOREIGN KEY(mentor_id)
+    REFERENCES user_account(user_id)
 );
 
 DROP TABLE IF EXISTS user_attendances;
@@ -41,8 +42,8 @@ CREATE TABLE user_attendances (
 	status integer DEFAULT 0,
 	reason text DEFAULT NULL,
 	key_amount integer DEFAULT 0,
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
 );
 
 DROP TABLE IF EXISTS user_attendance_streak;
@@ -70,8 +71,8 @@ CREATE TABLE user_tasks (
 	startDate datetime,
 	endDate datetime,
 	status text,
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
 );
 
 DROP TABLE IF EXISTS user_skills;
@@ -79,8 +80,8 @@ CREATE TABLE user_skills (
 	user_id integer,
 	skill_id integer,
 	value integer,
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
 );
 
 DROP TABLE IF EXISTS user_competencies;
@@ -88,8 +89,8 @@ CREATE TABLE user_competencies (
 	user_id integer,
 	competencie_id integer,
 	value integer,
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
 );
 
 DROP TABLE IF EXISTS assignment;
@@ -102,8 +103,8 @@ CREATE TABLE assignment (
 	key_range NOT NULL DEFAULT 0,
 	startDate datetime,
 	endDate datetime,
-	FOREIGN KEY(mentor_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(mentor_id)
+    REFERENCES user_account(user_id)
 );
 
 
@@ -115,7 +116,7 @@ CREATE TABLE user_assignment (
 	isCompleted integer NOT NULL DEFAULT 0,
 	key_amount integer DEFAULT 0,
 	FOREIGN KEY(user_id)
-    REFERENCES user_account(user_id) 
+    REFERENCES user_account(user_id)
 	FOREIGN KEY(assignment_id)
 	REFERENCES assignment(assignment_id)
 );
@@ -143,10 +144,10 @@ CREATE TABLE task_properties (
 	title text NOT NULL DEFAULT '',
 	task_id integer,
 	skill_id integer NOT NULL DEFAULT -1,
-	FOREIGN KEY(task_id) 
-    REFERENCES tasks(task_id) 
-	FOREIGN KEY(skill_id) 
-    REFERENCES skill_table(skill_id) 
+	FOREIGN KEY(task_id)
+    REFERENCES tasks(task_id)
+	FOREIGN KEY(skill_id)
+    REFERENCES skill_table(skill_id)
 );
 
 DROP TABLE IF EXISTS projects;
@@ -159,19 +160,19 @@ DROP TABLE IF EXISTS projects_tasks;
 CREATE TABLE projects_tasks (
 	project_id integer,
 	task_id integer,
-	FOREIGN KEY(project_id) 
-    REFERENCES projects(project_id) 
-	FOREIGN KEY(task_id) 
-    REFERENCES tasks(task_id) 
+	FOREIGN KEY(project_id)
+    REFERENCES projects(project_id)
+	FOREIGN KEY(task_id)
+    REFERENCES tasks(task_id)
 );
 
 DROP TABLE IF EXISTS project_competencies;
 CREATE TABLE project_competencies (
 	project_id integer,
 	skill_id integer,
-	FOREIGN KEY(project_id) 
-    REFERENCES projects(project_id) 
-	FOREIGN KEY(skill_id) 
+	FOREIGN KEY(project_id)
+    REFERENCES projects(project_id)
+	FOREIGN KEY(skill_id)
     REFERENCES skill_table(skill_id)
 );
 
@@ -182,18 +183,18 @@ CREATE TABLE groups (
 	group_name integer NOT NULL DEFAULT '',
 	project_id integer,
 	disabled NOT NULL DEFAULT 0,
-	FOREIGN KEY(project_id) 
-    REFERENCES projects(project_id) 
+	FOREIGN KEY(project_id)
+    REFERENCES projects(project_id)
 );
 
 DROP TABLE IF EXISTS group_members;
 CREATE TABLE group_members (
 	group_id integer,
 	user_id integer,
-	FOREIGN KEY(group_id) 
-    REFERENCES groups(group_id) 
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(group_id)
+    REFERENCES groups(group_id)
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
 );
 
 DROP TABLE IF EXISTS group_scrum;
@@ -202,8 +203,8 @@ CREATE TABLE group_scrum (
 	user_id integer,
 	startDate datetime,
 	endDate datetime,
-	FOREIGN KEY(group_id) 
-    REFERENCES groups(group_id) 
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(group_id)
+    REFERENCES groups(group_id)
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
 );

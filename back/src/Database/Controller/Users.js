@@ -4,7 +4,7 @@ import Utils from '../Utils.js';
 const initializeUsers = async (stmtTable) => {
     try {
         const {
-            USER_SEL, USER_SELL_EMAIL, USER_SEL_ALL, USER_INS, USER_UPD, USER_BAN, USER_LINKS_SEL, USER_LINKS_INS, USER_LINKS_UPD,
+            USER_SEL, USER_SELL_EMAIL,USER_SEL_DISCORD_ID, USER_SEL_ALL, USER_INS, USER_UPD, USER_BAN, USER_LINKS_SEL, USER_LINKS_INS, USER_LINKS_UPD,
             USER_LINKS_DEL, USER_SKILLS_SEL, USER_SKILLS_INS, USER_SKILLS_UPD, USER_COMPETENCIES_INS, USER_COMPETENCIES_SEL,
             USER_COMPETENCIES_UPD, USER_NOTES_INS, USER_NOTES_UPD, USER_NOTES_DEL, USER_NOTES_SEL, USER_NOTES_SEL_ALL,
             ATTENDANCE_INS, ATTENDANCE_UPD, ATTENDANCE_STREAK_UPD, USER_TASKS_INS, USER_TASKS_UPD, USER_TASKS_DEL,
@@ -18,6 +18,10 @@ const initializeUsers = async (stmtTable) => {
 
         const getUserByEmail = email => {
             return executeToDatabase(USER_SELL_EMAIL).SELECT(email)
+        }
+
+        const getUserByDiscordId = discordId => {
+            return executeToDatabase(USER_SEL_DISCORD_ID).SELECT(discordId)
         }
         const getAllUsers = () => {
             return executeToDatabase(USER_SEL_ALL).SELECT_ALL();
@@ -155,6 +159,8 @@ const initializeUsers = async (stmtTable) => {
 
         const controller = {
             getUser,
+            getUserByEmail,
+            getUserByDiscordId,
             getAllUsers,
             createUser,
             updateUser,

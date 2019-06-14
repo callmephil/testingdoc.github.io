@@ -40,6 +40,7 @@ const getConnection = async () => {
         return controllers;
     } catch (e) {
         console.log(`Failed to get database connection : ${e}`)
+        return false;
     }
 }
 

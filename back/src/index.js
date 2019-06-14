@@ -19,8 +19,9 @@ const start = async () => {
     const {usersController, assignmentsController, groupsController, tasksController} = DatabaseControllers;
     app.get('/', (req, res, next) => res.send('ok'));
 
-    app.use('/discord', discordControllerApp);
-    // /* ROUTING DATA'S  */
+    const discord = await discordControllerApp(usersController, isLoggedIn, upload)
+    app.use('/discord', discord);
+    /* ROUTING DATA'S  */
     const users = await usersControllerApp(usersController, isLoggedIn, upload);
     app.use('/users', users);
 

@@ -5,7 +5,8 @@ CREATE TABLE user_account (
 	lastname text NOT NULL,
 	email text UNIQUE,
 	phoneNumber text,
-	auth0_sub text UNIQUE
+	discordId text UNIQUE,
+	refresh_token text UNIQUE,
 	security_level integer DEFAULT 0,
 	disabled integer DEFAULT 0
 );
@@ -16,8 +17,8 @@ CREATE TABLE user_links (
 	link_type text NOT NULL,
 	link text UNIQUE,
 	last_update datetime
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
 );
 
 
@@ -29,10 +30,10 @@ CREATE TABLE user_notes (
 	type text NOT NULL DEFAULT 'internal',
 	activity_id integer DEFAULT -1,
 	comment text NOT NULL DEFAULT ''
-	FOREIGN KEY(user_id) 
-    REFERENCES user_account(user_id) 
-	FOREIGN KEY(mentor_id) 
-    REFERENCES user_account(user_id) 
+	FOREIGN KEY(user_id)
+    REFERENCES user_account(user_id)
+	FOREIGN KEY(mentor_id)
+    REFERENCES user_account(user_id)
 );
 
 

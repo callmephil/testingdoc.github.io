@@ -20,7 +20,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "nodemon --signal SIGINT --exec babel-node ./src/index.js",
+    "start": "nodemon --signal SIGINT --exec babel-node --inspect=5858 ./src/index.js",
     "build:clean": "rimraf ./build",
     "build:build": "babel src --out-dir ./build --source-maps",
     "build": "npm run build:clean && npm run build:build",

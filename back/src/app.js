@@ -7,12 +7,11 @@ import cors from 'cors' // allows cross-domain requests
 import createError from 'http-errors' // better JS errors
 import bodyParser from 'body-parser'; // middleware to handle HTTP requests
 
+import morgan from 'morgan'
 import path from 'path'
 import helmet from 'helmet'
-import passport from 'passport'
-import {Strategy} from 'passport-discord';
-import discordRefresh from 'passport-oauth2-refresh';
-import {checkAuth} from './Middleware/auth2';
+
+import passport from './passport';
 
 require('dotenv').config();
 
@@ -34,45 +33,30 @@ app.use(favicon(path.join(__dirname, '../public', 'favicon.ico'))) // <-- locati
 app.use(express.static(path.join(__dirname, '../public'))); // <-- location of your public dir
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({extended: true})); // support encoded bodies
+app.use(morgan('dev'))
 
-passport.serializeUser(function (user, done) {
-    done(null, user);
+// Sessions
+app.use(
+    session({
+        secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
+        // store: new MongoStore({mongooseConnection: dbConnection}), //TODO: as default express-session will use a lightweight memory store.
+        resave: false, //required
+        saveUninitialized: false, //required
+    }),
+)
+
+// Passport
+app.use(passport.initialize())
+app.use(passport.session()) // calls the deserializeUser
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+    if ('OPTIONS' == req.method) {
+        res.send(200);
+    } else {
+        next();
+    }
 });
-passport.deserializeUser(function (obj, done) {
-    done(null, obj);
-});
-
-const scopes = ['identify', 'email'];
-
-const discordStrat = new Strategy({
-    clientID: process.env.DISCORD_CLIENT_ID,
-    clientSecret: process.env.DISCORD_CLIENT_SECRET,
-    callbackURL: 'http://localhost:8080/discord/callback',
-    scope: scopes,
-}, function (accessToken, refreshToken, profile, done) {
-    profile.refreshToken = refreshToken;
-    process.nextTick(function () {
-        return done(null, profile);
-    });
-});
-passport.use(discordStrat);
-discordRefresh.use(discordStrat);
-
-discordRefresh.requestNewAccessToken('discord', profile.refreshToken, function(err, accessToken, refreshToken) {
-    if (err)
-        throw err; // boys, we have an error here.
-
-    profile.accessToken = accessToken; // store this new one for our new requests!
-});
-
-app.use(session({ // handles sessions
-    secret: process.env.SESSION_SECRET, // <-- this should be a secret phrase
-    cookie: {secure: IS_PRODUCTION}, // <-- secure only in production
-    resave: true,
-    saveUninitialized: true,
-}))
-
-app.use(passport.initialize());
-app.use(passport.session());
-
 export default app
